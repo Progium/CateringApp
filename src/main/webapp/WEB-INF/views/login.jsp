@@ -48,7 +48,7 @@
     <script src="resources/js/lib/angular/1.3.9/angular-route.js"></script>
 
     <!--Aplicacion-->
-    <script src="resources/js/app.js"></script>
+    <script src="resources/js/login-app.js"></script>
     <script src="resources/js/services.js"></script>
 
     <!--Controladores-->

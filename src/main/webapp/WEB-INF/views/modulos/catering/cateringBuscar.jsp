@@ -2,7 +2,7 @@
 <aside class="sidebar bg-lighter"
 	ng-controller="CateringBuscarController">
 	<div class="bg-light padder padder-v" style="padding-bottom: 5px;">
-		<span class="h4 col-lg-offset-1">Búsqueda de Catering</span>
+		<span class="h4 col-lg-offset-1">Busqueda de Catering</span>
 	</div>
 	<ul class="list-group list-normal m-b-none">
 		<li class="list-group-item">Nombre <input type="text"
