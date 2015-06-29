@@ -54,7 +54,11 @@ App.config(function($routeProvider, $locationProvider) {
 			templateUrl: 'modulos/subasta-listar',
 			controller: 'SubastaListarController'
 		})
+		.when('/no-encontrado', {
+			templateUrl: 'modulos/no-encontrado',
+			controller: 'CompartidoController'
+		})
 		.otherwise({
-        	redirectTo: '/iniciar-sesion'
+        	redirectTo: '/no-encontrado'
 		});
 });

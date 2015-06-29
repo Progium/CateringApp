@@ -36,7 +36,12 @@ public class LayoutController {
 	{
 		return "modulos/compartido/menuCliente";
 	}
-	
+
+	@RequestMapping(value = "/no-encontrado")
+	public String getNoEncontrado()
+	{
+		return "modulos/compartido/noEncontrado";
+	}
 	//-------------------------------------------------------
 	//Cotizacion
 	//-------------------------------------------------------
