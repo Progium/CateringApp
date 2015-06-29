@@ -59,6 +59,8 @@
     <script src="resources/modulos/catering/catering-buscar-controller.js"></script>
     <script src="resources/modulos/cotizacion/cotizacion-registrar-controller.js"></script>
     <script src="resources/modulos/producto/producto-registrar-controller.js"></script>
+    <script src="resources/modulos/subasta/subasta-registrar-controller.js"></script>
+    <script src="resources/modulos/subasta/subasta-listar-controller.js"></script>
 </head>
 
 <body ng-controller="MainController">

@@ -75,4 +75,19 @@ public class LayoutController {
 	{
 		return "modulos/seguridad/usuarioRegistrar2";
 	}
+	
+	//-------------------------------------------------------
+	//Subasta
+	//-------------------------------------------------------
+	@RequestMapping(value = "/subasta-registrar")
+	public String getSubastaRegistrar()
+	{
+		return "modulos/subasta/subastaRegistrar";
+	}
+	
+	@RequestMapping(value = "/subasta-listar")
+	public String getSubastaListar()
+	{
+		return "modulos/subasta/subastaListar";
+	}
 }

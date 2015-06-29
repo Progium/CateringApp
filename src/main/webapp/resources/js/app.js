@@ -46,6 +46,14 @@ App.config(function($routeProvider, $locationProvider) {
 			templateUrl: 'modulos/cotizacion-registrar',
 			controller: 'CotizacionRegistrarController'
 		})
+		.when('/subasta-registrar', {
+			templateUrl: 'modulos/subasta-registrar',
+			controller: 'SubastaRegistrarController'
+		})
+		.when('/subasta-listar', {
+			templateUrl: 'modulos/subasta-listar',
+			controller: 'SubastaListarController'
+		})
 		.otherwise({
         	redirectTo: '/iniciar-sesion'
 		});

@@ -6,7 +6,5 @@
  */
 
 App.controller('CateringRegistrarController', function($scope, $location) {
-
-  //$scope.init();
-
+	_ScopeContainer['MainController'].esAdministrador = true;
 });
