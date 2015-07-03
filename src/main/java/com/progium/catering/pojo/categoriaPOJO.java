@@ -1,27 +1,27 @@
 package com.progium.catering.pojo;
 
-public class CategoriaPOJO {
-	private int idCategoria;
-	private String nombre;
+public class categoriaPOJO {
+	private int IdCategoria;
+	private String Nombre;
 	
-	public CategoriaPOJO(){
+	public categoriaPOJO(){
 		super();
 	}
 
 	public int getIdCategoria() {
-		return idCategoria;
+		return IdCategoria;
 	}
 
 	public void setIdCategoria(int idCategoria) {
-		this.idCategoria = idCategoria;
+		this.IdCategoria = idCategoria;
 	}
 
 	public String getNombre() {
-		return nombre;
+		return Nombre;
 	}
 
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		this.Nombre = nombre;
 	}
 	
 	

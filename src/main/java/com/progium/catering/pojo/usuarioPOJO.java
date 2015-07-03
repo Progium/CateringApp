@@ -1,97 +1,97 @@
 package com.progium.catering.pojo;
 
-public class UsuarioPOJO {
-	private int idUsuario;
-	private String nombre;
-	private String apellido1;
-	private String apellido2;
-	private String telefono1;
-	private String telefono2;
-	private String correo;
-	private String fotografia;
-	private String contrasenna;
-	private Integer tipoUsuarioId;
+public class usuarioPOJO {
+	private int IdUsuario;
+	private String Nombre;
+	private String Apellido1;
+	private String Apellido2;
+	private String Telefono1;
+	private String Telefono2;
+	private String Correo;
+	private String Fotografia;
+	private String Contrasenna;
+	private Integer TipoUsuarioId;
 	
-	public UsuarioPOJO(){
+	public usuarioPOJO(){
 		super();
 	}
 
 	public int getIDUsuario() {
-		return idUsuario;
+		return IdUsuario;
 	}
 	public void setIDUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
+		this.IdUsuario = idUsuario;
 	}
 
 	public String getNombre() {
-		return nombre;
+		return Nombre;
 	}
 
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		this.Nombre = nombre;
 	}
 
 	public String getApellido1() {
-		return apellido1;
+		return Apellido1;
 	}
 
 	public void setApellido1(String apellido1) {
-		this.apellido1 = apellido1;
+		this.Apellido1 = apellido1;
 	}
 
 	public String getApellido2() {
-		return apellido2;
+		return Apellido2;
 	}
 
 	public void setApellido2(String apellido2) {
-		this.apellido2 = apellido2;
+		this.Apellido2 = apellido2;
 	}
 
 	public String getTelefono1() {
-		return telefono1;
+		return Telefono1;
 	}
 
 	public void setTelefono1(String telefono1) {
-		this.telefono1 = telefono1;
+		this.Telefono1 = telefono1;
 	}
 
 	public String getTelefono2() {
-		return telefono2;
+		return Telefono2;
 	}
 
 	public void setTelefono2(String telefono2) {
-		this.telefono2 = telefono2;
+		this.Telefono2 = telefono2;
 	}
 
 	public String getCorreo() {
-		return correo;
+		return Correo;
 	}
 
 	public void setCorreo(String correo) {
-		this.correo = correo;
+		this.Correo = correo;
 	}
 
 	public String getFotografia() {
-		return fotografia;
+		return Fotografia;
 	}
 
 	public void setFotografia(String fotografia) {
-		this.fotografia = fotografia;
+		this.Fotografia = fotografia;
 	}
 	
 	public String getContrasenna() {
-		return contrasenna;
+		return Contrasenna;
 	}
 
 	public void setContrasenna(String contrasenna) {
-		this.contrasenna = contrasenna;
+		this.Contrasenna = contrasenna;
 	}
 
 	public Integer getTipoUsuarioId() {
-		return tipoUsuarioId;
+		return TipoUsuarioId;
 	}
 
 	public void setTipoUsuarioId(Integer tipoUsuarioId) {
-		this.tipoUsuarioId = tipoUsuarioId;
+		this.TipoUsuarioId = tipoUsuarioId;
 	}
 }

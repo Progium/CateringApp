@@ -11,37 +11,37 @@ import java.util.List;
 @Entity
 @Table(name="categoria")
 @NamedQuery(name="categoria.findAll", query="SELECT c FROM categoria c")
-public class Categoria implements Serializable {
+public class categoria implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int idCategoria;
+	private int IdCategoria;
 	
-	private String nombre;
+	private String Nombre;
 	
 /*	//bi-directional many-to-one association to producto
 	@OneToMany(mappedBy="categoria")
 	private List<Producto> productos;*/
 	
-	public Categoria(){
+	public categoria(){
 		
 	}
 	
 	public int getIdCategoria(){
-		return this.idCategoria;
+		return this.IdCategoria;
 	}
 	
-	public void setIdCategoria(int idCategoria){
-		this.idCategoria = idCategoria;
+	public void setIdCategoria(int IdCategoria){
+		this.IdCategoria = IdCategoria;
 	}
 	
 	public String getNombre(){
-		return this.nombre;
+		return this.Nombre;
 	}
 	
-	public void setNombre(String nombre){
-		this.nombre = nombre;
+	public void setNombre(String Nombre){
+		this.Nombre = Nombre;
 	}
 	
 /*	public List<Producto> getProductos() {
