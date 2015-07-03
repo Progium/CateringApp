@@ -13,127 +13,127 @@ import java.util.List;
  */
 @Entity
 @NamedQuery(name="catering.findAll", query="SELECT cs FROM catering cs")
-public class catering implements Serializable {
+public class Catering implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int IdCatering;
+	private int idCatering;
 	
-	private String Nombre;
-	private String CedulaJuridica;
-	private String Direccion;
-	private String Telefono1;
-	private String Telefono2;
-	private String Horario;
-	private boolean Estado;
-	private String Fotografia;
-	private Integer ProvinciaId;
-	private Integer CantonId;
-	private Integer AdministradorId;
-	private Integer DistritoId;
+	private String nombre;
+	private String cedulaJuridica;
+	private String direccion;
+	private String telefono1;
+	private String telefono2;
+	private String horario;
+	private boolean estado;
+	private String fotografia;
+	private Integer provinciaId;
+	private Integer cantonId;
+	private Integer administradorId;
+	private Integer distritoId;
 	
 	public int getIdCatering() {
-		return this.IdCatering;
+		return this.idCatering;
 	}
 
 	public void setIdCatering(int idCatering) {
-		this.IdCatering = idCatering;
+		this.idCatering = idCatering;
 	}
 
 	public String getNombre() {
-		return this.Nombre;
+		return this.nombre;
 	}
 
 	public void setNombre(String nombre) {
-		this.Nombre = nombre;
+		this.nombre = nombre;
 	}
 
 	public String getCedulaJuridica() {
-		return this.CedulaJuridica;
+		return this.cedulaJuridica;
 	}
 
 	public void setCedulaJuridica(String cedulaJuridica) {
-		this.CedulaJuridica = cedulaJuridica;
+		this.cedulaJuridica = cedulaJuridica;
 	}
 
 	public String getDireccion() {
-		return this.Direccion;
+		return this.direccion;
 	}
 
 	public void setDireccion(String direccion) {
-		this.Direccion = direccion;
+		this.direccion = direccion;
 	}
 
 	public String getTelefono1() {
-		return this.Telefono1;
+		return this.telefono1;
 	}
 
 	public void setTelefono1(String telefono1) {
-		this.Telefono1 = telefono1;
+		this.telefono1 = telefono1;
 	}
 	
 	public String getTelefono2() {
-		return this.Telefono2;
+		return this.telefono2;
 	}
 
 	public void setTelefono2(String telefono2) {
-		this.Telefono2 = telefono2;
+		this.telefono2 = telefono2;
 	}
 
 	public String getHorario() {
-		return this.Horario;
+		return this.horario;
 	}
 
 	public void setHorario(String horario) {
-		this.Horario = horario;
+		this.horario = horario;
 	}
 
 	public boolean isEstado() {
-		return this.Estado;
+		return this.estado;
 	}
 
 	public void setEstado(boolean estado) {
-		this.Estado = estado;
+		this.estado = estado;
 	}
 
 	public String getFotografia() {
-		return this.Fotografia;
+		return this.fotografia;
 	}
 
 	public void setFotografia(String fotografia) {
-		this.Fotografia = fotografia;
+		this.fotografia = fotografia;
 	}
 
 	public Integer getProvinciaId() {
-		return this.ProvinciaId;
+		return this.provinciaId;
 	}
 
 	public void setProvinciaId(Integer provinciaId) {
-		this.ProvinciaId = provinciaId;
+		this.provinciaId = provinciaId;
 	}
 
 	public Integer getCantonId() {
-		return this.CantonId;
+		return this.cantonId;
 	}
 
 	public void setCantonId(Integer cantonId) {
-		this.CantonId = cantonId;
+		this.cantonId = cantonId;
 	}
 
 	public Integer getAdministradorId() {
-		return this.AdministradorId;
+		return this.administradorId;
 	}
 
 	public void setAdministradorId(Integer administradorId) {
-		this.AdministradorId = administradorId;
+		this.administradorId = administradorId;
 	}
 
 	public Integer getDistritoId() {
-		return this.DistritoId;
+		return this.distritoId;
 	}
 
 	public void setDistritoId(Integer distritoId) {
-		this.DistritoId = distritoId;
+		this.distritoId = distritoId;
 	}
 }

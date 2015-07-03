@@ -1,126 +1,126 @@
 package com.progium.catering.pojo;
 
-public class cateringPOJO {
-	private int IdCatering;
-	private String Nombre;
-	private String CedulaJuridica;
-	private String Direccion;
-	private String Telefono1;
-	private String Telefono2;
-	private String Horario;
-	private boolean Estado;
-	private String Fotografia;
-	private Integer ProvinciaId;
-	private Integer CantonId;
-	private Integer AdministradorId;
-	private Integer DistritoId;
+public class CateringPOJO {
+	private int idCatering;
+	private String nombre;
+	private String cedulaJuridica;
+	private String direccion;
+	private String telefono1;
+	private String telefono2;
+	private String horario;
+	private boolean estado;
+	private String fotografia;
+	private Integer provinciaId;
+	private Integer cantonId;
+	private Integer administradorId;
+	private Integer distritoId;
 	
-	public cateringPOJO(){
+	public CateringPOJO(){
 		super();
 	}
 
 	public int getIdCatering() {
-		return IdCatering;
+		return idCatering;
 	}
 
 	public void setIdCatering(int idCatering) {
-		this.IdCatering = idCatering;
+		this.idCatering = idCatering;
 	}
 
 	public String getNombre() {
-		return Nombre;
+		return nombre;
 	}
 
 	public void setNombre(String nombre) {
-		this.Nombre = nombre;
+		this.nombre = nombre;
 	}
 
 	public String getCedulaJuridica() {
-		return CedulaJuridica;
+		return cedulaJuridica;
 	}
 
 	public void setCedulaJuridica(String cedulaJuridica) {
-		this.CedulaJuridica = cedulaJuridica;
+		this.cedulaJuridica = cedulaJuridica;
 	}
 
 	public String getDireccion() {
-		return Direccion;
+		return direccion;
 	}
 
 	public void setDireccion(String direccion) {
-		this.Direccion = direccion;
+		this.direccion = direccion;
 	}
 
 	public String getTelefono1() {
-		return Telefono1;
+		return telefono1;
 	}
 
 	public void setTelefono1(String telefono1) {
-		this.Telefono1 = telefono1;
+		this.telefono1 = telefono1;
 	}
 	
 	public String getTelefono2() {
-		return Telefono2;
+		return telefono2;
 	}
 
 	public void setTelefono2(String telefono2) {
-		this.Telefono2 = telefono2;
+		this.telefono2 = telefono2;
 	}
 
 	public String getHorario() {
-		return Horario;
+		return horario;
 	}
 
 	public void setHorario(String horario) {
-		this.Horario = horario;
+		this.horario = horario;
 	}
 
 	public boolean isEstado() {
-		return Estado;
+		return estado;
 	}
 
 	public void setEstado(boolean estado) {
-		this.Estado = estado;
+		this.estado = estado;
 	}
 
 	public String getFotografia() {
-		return Fotografia;
+		return fotografia;
 	}
 
 	public void setFotografia(String fotografia) {
-		this.Fotografia = fotografia;
+		this.fotografia = fotografia;
 	}
 
 	public Integer getProvinciaId() {
-		return ProvinciaId;
+		return provinciaId;
 	}
 
 	public void setProvinciaId(Integer provinciaId) {
-		this.ProvinciaId = provinciaId;
+		this.provinciaId = provinciaId;
 	}
 
 	public Integer getCantonId() {
-		return CantonId;
+		return cantonId;
 	}
 
 	public void setCantonId(Integer cantonId) {
-		this.CantonId = cantonId;
+		this.cantonId = cantonId;
 	}
 
 	public Integer getAdministradorId() {
-		return AdministradorId;
+		return administradorId;
 	}
 
 	public void setAdministradorId(Integer administradorId) {
-		this.AdministradorId = administradorId;
+		this.administradorId = administradorId;
 	}
 
 	public Integer getDistritoId() {
-		return DistritoId;
+		return distritoId;
 	}
 
 	public void setDistritoId(Integer distritoId) {
-		this.DistritoId = distritoId;
+		this.distritoId = distritoId;
 	}
 
 

@@ -13,101 +13,101 @@ import java.util.List;
  */
 @Entity
 @NamedQuery(name="usuario.findAll", query="SELECT u FROM usuario u")
-public class usuario implements Serializable {
+public class Usuario implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
 		@Id
 		@GeneratedValue(strategy=GenerationType.AUTO)
-		private int IdUsuario;
+		private int idUsuario;
 		
-		private String Nombre;
-		private String Apellido1;
-		private String Apellido2;
-		private String Telefono1;
-		private String Telefono2;
-		private String Correo;
-		private String Fotografia;
-		private String Contrasenna;
-		private Integer TipoUsuarioId;
+		private String nombre;
+		private String apellido1;
+		private String apellido2;
+		private String telefono1;
+		private String telefono2;
+		private String correo;
+		private String fotografia;
+		private String contrasenna;
+		private Integer tipoUsuarioId;
 		
-		public int getIDUsuario() {
-			return this.IdUsuario;
+		public int getiDUsuario() {
+			return this.idUsuario;
 		}
 
 		public void setIDUsuario(int iDUsuario) {
-			this.IdUsuario = iDUsuario;
+			this.idUsuario = iDUsuario;
 		}
 
 		public String getNombre() {
-			return this.Nombre;
+			return this.nombre;
 		}
 
 		public void setNombre(String nombre) {
-			this.Nombre = nombre;
+			this.nombre = nombre;
 		}
 
 		public String getApellido1() {
-			return this.Apellido1;
+			return this.apellido1;
 		}
 
 		public void setApellido1(String apellido1) {
-			this.Apellido1 = apellido1;
+			this.apellido1 = apellido1;
 		}
 
 		public String getApellido2() {
-			return this.Apellido2;
+			return this.apellido2;
 		}
 
 		public void setApellido2(String apellido2) {
-			this.Apellido2 = apellido2;
+			this.apellido2 = apellido2;
 		}
 
 		public String getTelefono1() {
-			return this.Telefono1;
+			return this.telefono1;
 		}
 
 		public void setTelefono1(String telefono1) {
-			this.Telefono1 = telefono1;
+			this.telefono1 = telefono1;
 		}
 
 		public String getTelefono2() {
-			return this.Telefono2;
+			return this.telefono2;
 		}
 
 		public void setTelefono2(String telefono2) {
-			this.Telefono2 = telefono2;
+			this.telefono2 = telefono2;
 		}
 
 		public String getCorreo() {
-			return this.Correo;
+			return this.correo;
 		}
 
 		public void setCorreo(String correo) {
-			this.Correo = correo;
+			this.correo = correo;
 		}
 
 		public String getFotografia() {
-			return this.Fotografia;
+			return this.fotografia;
 		}
 
 		public void setFotografia(String fotografia) {
-			this.Fotografia = fotografia;
+			this.fotografia = fotografia;
 		}
 		
 		public String getContrasenna() {
-			return this.Contrasenna;
+			return this.contrasenna;
 		}
 
 		public void setContrasenna(String contrasenna) {
-			this.Contrasenna = contrasenna;
+			this.contrasenna = contrasenna;
 		}
 
 		public Integer getTipoUsuarioId() {
-			return this.TipoUsuarioId;
+			return this.tipoUsuarioId;
 		}
 
 		public void setTipoUsuarioId(Integer tipoUsuarioId) {
-			this.TipoUsuarioId = tipoUsuarioId;
+			this.tipoUsuarioId = tipoUsuarioId;
 		}
 		
 }
