@@ -1,6 +1,7 @@
 package com.progium.catering.pojo;
 
 public class CateringPOJO {
+	
 	private int idCatering;
 	private String nombre;
 	private String cedulaJuridica;
