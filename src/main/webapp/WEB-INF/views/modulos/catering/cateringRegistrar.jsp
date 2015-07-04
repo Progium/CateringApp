@@ -66,7 +66,7 @@
 						</div>
 
 						<div class="form-group">
-							<label class="col-lg-3 control-label">Canton</label>
+							<label class="col-lg-3 control-label">Cantón</label>
 							<div class="col-lg-8">
 								<input type="text" ng-model="canton" placeholder="canton"
 									data-required="true" class="form-control">
