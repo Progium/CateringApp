@@ -19,9 +19,7 @@ import com.progium.catering.contracts.TipoResponse;
 import com.progium.catering.contracts.UsuarioResponse;
 import com.progium.catering.ejb.Usuario;
 import com.progium.catering.pojo.UsuarioPOJO;
-//import com.cenfotec.cenfoteca.services.GeneralServiceInterface;
-//import com.cenfotec.cenfoteca.services.RentServiceInterface;
-//import com.cenfotec.cenfoteca.services.UsersServiceInterface;
+
 
 /**
  * Handles requests for the application home page.

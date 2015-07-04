@@ -11,6 +11,6 @@ App.controller('UsuarioRegistrarController', function($scope, $location) {
   }
   
   $scope.continuar = function(){
-    $location.path('/iniciar-sesion');
+    
   }
 });
