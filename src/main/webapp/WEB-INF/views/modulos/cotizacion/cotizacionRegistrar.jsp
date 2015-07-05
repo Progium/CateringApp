@@ -5,7 +5,7 @@
 		<div class="col-lg-5  col-lg-offset-3">
 			<section class="panel">
 				<header class="panel-heading text-center"> Crear
-					CotizaciÃ³n </header>
+					Cotización </header>
 				<div class="panel-body">
 					<form class="form-horizontal" method="get" data-validate="parsley">
 						<div class="form-group">
@@ -28,7 +28,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-lg-3 control-label">DescripciÃ³n</label>
+							<label class="col-lg-3 control-label">Descripción</label>
 							<div class="col-lg-5">
 								<textarea name="lugar" class="form-control"
 									style="max-width: 207px; max-height: 130px; resize: none;"></textarea>
@@ -67,5 +67,5 @@
 			</section>
 		</div>
 	</div>
-	</div>
+	
 </section>

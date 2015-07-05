@@ -48,8 +48,12 @@ App.config(function($routeProvider, $locationProvider) {
 		})
 		.when('/paquete-registrar', {
 			templateUrl: 'modulos/paquete-registrar',
-			controller: 'CotizacionRegistrarController'
-		})		
+			controller: 'PaqueteRegistrarController'
+		})
+		.when('/paquete-listar', {
+			templateUrl: 'modulos/paquete-listar',
+			controller: 'PaqueteListarController'
+		})
 		.when('/subasta-registrar', {
 			templateUrl: 'modulos/subasta-registrar',
 			controller: 'SubastaRegistrarController'

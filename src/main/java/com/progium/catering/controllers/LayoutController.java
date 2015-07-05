@@ -61,6 +61,19 @@ public class LayoutController {
 	}
 	
 	//-------------------------------------------------------
+	// Paquete
+	// -------------------------------------------------------
+	@RequestMapping(value = "/paquete-registrar")
+	public String getPaqueteRegistrar() {
+		return "modulos/paquete/paqueteRegistrar";
+	}
+	
+	@RequestMapping(value = "/paquete-listar")
+	public String getPaqueteListar() {
+		return "modulos/paquete/paqueteListar";
+	}
+
+	//-------------------------------------------------------
 	//Seguridad
 	//-------------------------------------------------------
 	@RequestMapping(value = "/seguridad-iniciar-sesion")
