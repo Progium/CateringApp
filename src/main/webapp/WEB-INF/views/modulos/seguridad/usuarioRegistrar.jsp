@@ -33,22 +33,31 @@
 							<label class="col-lg-3 control-label">Nombre</label>
 							<div class="col-lg-8">
 								<input type="text" name="nombre" placeholder="Marcela"
-									class="form-control" ng-pattern="/a-zA-Z/" ng-model="nombre"
-									required />
+									class="form-control"ng-model="nombre"
+									required ng-pattern="/^(\D)+$/"  />
+									<span class="error-message"
+								ng-show="crearUsuario.nombre.$error.pattern">Debe ingresar
+								solo letras</span>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-lg-3 control-label">Primer Apellido</label>
 							<div class="col-lg-8">
-								<input type="text" name="username" placeholder="Leandro"
-									class="form-control" ng-model="apellido" required />
+								<input type="text" name="apellido1" placeholder="Leandro"
+									class="form-control" ng-model="apellido" required ng-pattern="/^(\D)+$/"/>
+									<span class="error-message"
+								ng-show="crearUsuario.apellido1.$error.pattern">Debe ingresar
+								solo letras</span>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-lg-3 control-label">Segundo Apellido</label>
 							<div class="col-lg-8">
-								<input type="text" name="username" placeholder="Picado"
-									class="form-control" ng-model="apellido2" />
+								<input type="text" name="apellido2" placeholder="Picado"
+									class="form-control" ng-model="apellido2" ng-pattern="/^(\D)+$/" />
+								<span class="error-message"
+								ng-show="crearUsuario.apellido2.$error.pattern">Debe ingresar
+								solo letras</span>
 							</div>
 						</div>
 						<div class="form-group">
@@ -62,20 +71,21 @@
 							<label class="col-lg-3 control-label">Teléfono1</label>
 							<div class="col-lg-8">
 								<input type="text" name="telefono1" placeholder="88888888"
-									class="form-control" ng-pattern="/^\d{0,9}(\.\d{1,9})?$/"
-									ng-model="telefono1" required />
-								<!-- 								<span class="error" ng-show="crearUsuario.telefono1.$error.number">Not valid number!</span> -->
+									class="form-control" ng-model="telefono1" required
+									ng-pattern="/^(\d)+$/"/>
 							</div>
-
 							<span class="error-message"
-								ng-show="crearUsuario.telefono1.pattern">The phone number
-								field should be</span>
+								ng-show="crearUsuario.telefono1.$error.pattern">Debe ingresar
+								solo números</span>
 						</div>
 						<div class="form-group">
 							<label class="col-lg-3 control-label">Teléfono2</label>
 							<div class="col-lg-8">
 								<input type="text" name="telefono2" placeholder="22223333"
-									ng-model="telefono2" class="form-control" />
+									ng-model="telefono2" class="form-control" ng-pattern="/^(\d)+$/"/>
+															<span class="error-message"
+								ng-show="crearUsuario.telefono2.$error.pattern">Debe ingresar
+								solo números</span>
 							</div>
 						</div>
 					</div>
@@ -87,49 +97,47 @@
 						<div class="form-group">
 							<h4 class="posicion">Datos de la Cuenta</h4>
 						</div>
-						<div class="panel-body">
-							<form class="form-horizontal" method="get"
-								data-validate="parsley">
-								<div class="form-group">
-									<label class="col-lg-2-4 control-label">Tipo</label>
-									<div class="col-lg-5">
-										<!-- radio -->
-										<div class="radio">
-											<label> <input type="radio" name="radio">
-												Cliente
-											</label>
-										</div>
-										<div class="radio">
-											<label> <input type="radio" name="radio">
-												Administrador del Catering
-											</label>
-										</div>
-									</div>
+						<div class="form-group">
+							<label class="col-lg-2-4 control-label">Tipo</label>
+							<div class="col-lg-5">
+								<!-- radio -->
+								<div class="radio">
+									<label> <input type="radio" name="radio"
+										ng-model="rolCliente"> Cliente
+									</label>
 								</div>
-								<div class="form-group">
-									<label class="col-lg-2-4 control-label">Contraseña</label>
-									<div class="col-lg-5">
-										<input type="password" name="password" placeholder="Password"
-											class="bg-focus form-control" required />
-										<div class="line line-dashed m-t-large"></div>
-									</div>
+								<div class="radio">
+									<label> <input type="radio" name="radio" n>
+										Administrador del Catering
+									</label>
 								</div>
-								<div class="form-group">
-									<label class="col-lg-2-4 control-label">Repetir
-										Contraseña</label>
-									<div class="col-lg-5">
-										<input type="password" name="password" placeholder="Password"
-											class="bg-focus form-control" required />
-										<div class="line line-dashed m-t-large"></div>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="col-lg-9 col-lg-offset-3">
-										<button type="submit" class="btn btn-white"
-											ng-click="continuar()">Cancelar</button>
-										<button class="btn btn-info" ng-click="continuar()">Guardar</button>
-									</div>
-								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-2-4 control-label">Contraseña</label>
+							<div class="col-lg-5">
+								<input type="password" name="password" placeholder="Password"
+									class="bg-focus form-control" required />
+								<div class="line line-dashed m-t-large"></div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-2-4 control-label">Repetir
+								Contraseña</label>
+							<div class="col-lg-5">
+								<input type="password" name="password" placeholder="Password"
+									class="bg-focus form-control" required />
+								<div class="line line-dashed m-t-large"></div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-lg-9 col-lg-offset-3">
+								<button type="submit" class="btn btn-white"
+									ng-click="continuar()">Cancelar</button>
+								<button class="btn btn-info" ng-click="continuar()">Guardar</button>
+							</div>
+						</div>
+					</div>
 				</section>
 			</div>
 
