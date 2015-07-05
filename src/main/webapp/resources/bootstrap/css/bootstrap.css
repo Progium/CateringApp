@@ -482,6 +482,7 @@ h3,
 h4,
 .h4 {
   font-size: 18px;
+  COLOR: #FFF;
 }
 
 h5,
@@ -5593,7 +5594,7 @@ a.list-group-item.active:focus .list-group-item-text {
 
 .panel {
   margin-bottom: 20px;
-  background-color: #ffffff;
+  background-color: #E6E6B8;
   border: 1px solid transparent;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
