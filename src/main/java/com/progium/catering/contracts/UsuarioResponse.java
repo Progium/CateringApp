@@ -2,22 +2,24 @@ package com.progium.catering.contracts;
 
 import java.util.List;
 
-import com.progium.catering.pojo.UsuarioPOJO;
+import com.progium.catering.ejb.Usuario;
 
 public class UsuarioResponse extends BaseResponse {
 
-	private List<UsuarioPOJO> usuarios;
+	private List<Usuario> usuarios;
 	
 	public UsuarioResponse() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public List<UsuarioPOJO> getUsuarios() {
+	public List<Usuario> getUsuarios() {
 		return usuarios;
 	}
 
-	public void setUsuarios(List<UsuarioPOJO> usuarios) {
+	public void setUsuarios(List<Usuario> usuarios) {
 		this.usuarios = usuarios;
 	}
+
+	
 }

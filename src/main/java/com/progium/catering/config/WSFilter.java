@@ -33,10 +33,13 @@ public class WSFilter implements Filter {
 		HttpServletRequest servletRequest = (HttpServletRequest)request;
 	    HttpServletResponse servletResponse = (HttpServletResponse) response;
 		
+	    String needAccess = servletRequest.getParameter("needAccess");
+	    
 	    HttpSession currentSession = servletRequest.getSession();
 	    
 	    System.out.println("Session Object ------> " + currentSession.getAttribute("idUser"));
-		if (currentSession.getAttribute("idUser") != null) {
+	    
+		if (currentSession.getAttribute("idUser") != null || needAccess.equals("false")) {
 			chain.doFilter(servletRequest, servletResponse);
 		} else {
 			logger.debug("Rejected: " + servletRequest.toString());

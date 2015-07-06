@@ -1,6 +1,5 @@
 package com.progium.catering.contracts;
 
-
 import java.util.List;
 
 public class BasePagingRequest{
