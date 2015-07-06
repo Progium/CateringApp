@@ -26,7 +26,7 @@
 								</div>
 								<div class="media-body">
 									<input ng-file-select="onFileSelect($files)" type="file" name="file" title="Examinar"
-										class="btn btn-sm btn-info m-b-small"> <br>
+										class="btn btn-sm btn-info m-b-small" required/> <br>
 									<button class="btn btn-sm btn-default">Eliminar</button>
 								</div>
 							</div>
@@ -155,7 +155,7 @@
 							<div class="col-lg-9 col-lg-offset-3">
 								<button type="submit" class="btn btn-white"
 									ng-click="cancelar()">Cancelar</button>
-								<button class="btn btn-info" ng-click="guardar()">Guardar</button>
+								<button type="submit" class="btn btn-info" ng-click="guardar()">Guardar</button>
 							</div>
 						</div>
 					</div>
