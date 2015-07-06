@@ -33,31 +33,30 @@
 							<label class="col-lg-3 control-label">Nombre</label>
 							<div class="col-lg-8">
 								<input type="text" name="nombre" placeholder="Marcela"
-									class="form-control"ng-model="nombre"
-									required ng-pattern="/^(\D)+$/"  />
-									<span class="error-message"
-								ng-show="crearUsuario.nombre.$error.pattern">Debe ingresar
-								solo letras</span>
+									class="form-control" ng-model="nombre" required
+									ng-pattern="/^(\D)+$/" /> <span class="error-message"
+									ng-show="crearUsuario.nombre.$error.pattern">Debe
+									ingresar solo letras</span>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-lg-3 control-label">Primer Apellido</label>
 							<div class="col-lg-8">
 								<input type="text" name="apellido1" placeholder="Leandro"
-									class="form-control" ng-model="apellido" required ng-pattern="/^(\D)+$/"/>
-									<span class="error-message"
-								ng-show="crearUsuario.apellido1.$error.pattern">Debe ingresar
-								solo letras</span>
+									class="form-control" ng-model="apellido" required
+									ng-pattern="/^(\D)+$/" /> <span class="error-message"
+									ng-show="crearUsuario.apellido1.$error.pattern">Debe
+									ingresar solo letras</span>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-lg-3 control-label">Segundo Apellido</label>
 							<div class="col-lg-8">
 								<input type="text" name="apellido2" placeholder="Picado"
-									class="form-control" ng-model="apellido2" ng-pattern="/^(\D)+$/" />
-								<span class="error-message"
-								ng-show="crearUsuario.apellido2.$error.pattern">Debe ingresar
-								solo letras</span>
+									class="form-control" ng-model="apellido2"
+									ng-pattern="/^(\D)+$/" /> <span class="error-message"
+									ng-show="crearUsuario.apellido2.$error.pattern">Debe
+									ingresar solo letras</span>
 							</div>
 						</div>
 						<div class="form-group">
@@ -72,20 +71,20 @@
 							<div class="col-lg-8">
 								<input type="text" name="telefono1" placeholder="88888888"
 									class="form-control" ng-model="telefono1" required
-									ng-pattern="/^(\d)+$/"/>
+									ng-pattern="/^(\d)+$/" />
 							</div>
 							<span class="error-message"
-								ng-show="crearUsuario.telefono1.$error.pattern">Debe ingresar
-								solo números</span>
+								ng-show="crearUsuario.telefono1.$error.pattern">Debe
+								ingresar solo números</span>
 						</div>
 						<div class="form-group">
 							<label class="col-lg-3 control-label">Teléfono2</label>
 							<div class="col-lg-8">
 								<input type="text" name="telefono2" placeholder="22223333"
-									ng-model="telefono2" class="form-control" ng-pattern="/^(\d)+$/"/>
-															<span class="error-message"
-								ng-show="crearUsuario.telefono2.$error.pattern">Debe ingresar
-								solo números</span>
+									ng-model="telefono2" class="form-control"
+									ng-pattern="/^(\d)+$/" /> <span class="error-message"
+									ng-show="crearUsuario.telefono2.$error.pattern">Debe
+									ingresar solo números</span>
 							</div>
 						</div>
 					</div>
@@ -116,8 +115,8 @@
 						<div class="form-group">
 							<label class="col-lg-2-4 control-label">Contraseña</label>
 							<div class="col-lg-5">
-								<input type="password" name="password" placeholder="Password"
-									class="bg-focus form-control" required />
+								<input type="password" name="Password" placeholder="Password"
+									class="bg-focus form-control" ng-model="Password" required />
 								<div class="line line-dashed m-t-large"></div>
 							</div>
 						</div>
@@ -125,9 +124,12 @@
 							<label class="col-lg-2-4 control-label">Repetir
 								Contraseña</label>
 							<div class="col-lg-5">
-								<input type="password" name="password" placeholder="Password"
-									class="bg-focus form-control" required />
+								<input type="password" name="confirmPassword"
+									ng-model="confirmPassword" required compare-to="password" />
 								<div class="line line-dashed m-t-large"></div>
+								<span class="error-message"
+									ng-show="crearUsuario.compare-to.$error">Debe
+									ingresar solo números</span>
 							</div>
 						</div>
 						<div class="form-group">
