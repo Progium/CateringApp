@@ -15,6 +15,7 @@ public class Paqueteproducto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idPaqueteProductos;
 
 	//bi-directional many-to-one association to Catalogoproducto

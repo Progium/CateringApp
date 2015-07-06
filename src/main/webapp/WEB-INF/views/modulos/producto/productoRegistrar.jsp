@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-lg-5  col-lg-offset-3">
 			<section class="panel">
-				<header class="panel-heading text-center"> Crear Cat√°logo
+				<header class="panel-heading text-center"> Crear Cat·logo
 				</header>
 				<div class="panel-body" ng-controlller="RegistrarCatalogoController">
 					<form class="form-horizontal" method="get" data-validate="parsley">
@@ -24,7 +24,7 @@
                   </div> -->
 
 						<div class="form-group">
-							<label class="col-lg-3 control-label">Catalogo</label>
+							<label class="col-lg-3 control-label">Cat·logo</label>
 							<div class="col-lg-5">
 								<select ng-model="seleccionarCatalogos"
 									ng-options="catalogo as catalogo.nombre for catalogo in catalogos"
@@ -49,14 +49,14 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-lg-3 control-label">Descripci√≥n</label>
+							<label class="col-lg-3 control-label">DescripciÛn</label>
 							<div class="col-lg-5">
 								<textarea name="descrip" class="form-control"
 									style="max-width: 207px; max-height: 130px; resize: none;"></textarea>
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-lg-3 control-label">Mis catering</label>
+							<label class="col-lg-3 control-label">Mis Catering</label>
 							<div class="col-lg-5">
 								<label ng-repeat="catering in caterings"> <input
 									type="checkbox" ng-model="seleccionar"
@@ -65,7 +65,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-lg-3 control-label">Fotograf√≠a</label>
+							<label class="col-lg-3 control-label">FotografÌa</label>
 							<div class="col-lg-5">
 								<img src="resources/first/src/images/arroz.jpg" alt="Arroz" />
 							</div>
@@ -80,5 +80,5 @@
 			</section>
 		</div>
 	</div>
-	</div>
+	
 </section>

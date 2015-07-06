@@ -1,13 +1,15 @@
 
 <section class="main padder" ng-controller="CateringRegistrarController">
-	<div class="clearfix">
-		<h4>
-			<i class="fa fa-edit"></i>Registrar Catering Service
-		</h4>
-	</div>
+	
 	<div class="row">
-		<div class="col-sm-6">
-			<section class="panel">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8">
+			<div class="clearfix">
+				<h4>
+					<i class="fa fa-edit"></i>Registrar Catering Service
+				</h4>
+			</div>
+			<section class="panel">	
 				<div class="panel-body">
 					<form class="form-horizontal" method="get" data-validate="parsley">
 						<div class="form-group">
@@ -66,7 +68,7 @@
 						</div>
 
 						<div class="form-group">
-							<label class="col-lg-3 control-label">Canton</label>
+							<label class="col-lg-3 control-label">Cantón</label>
 							<div class="col-lg-8">
 								<input type="text" ng-model="canton" placeholder="canton"
 									data-required="true" class="form-control">
@@ -104,5 +106,6 @@
 				</div>
 			</section>
 		</div>
+		<div class="col-sm-2"></div>
 	</div>
 </section>

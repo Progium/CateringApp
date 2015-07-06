@@ -1,4 +1,4 @@
-.main padder ng-scope{background-image: url("../img/bg_header.jpg")}
+body{background-image: url("../images/bg_header.jpg");}
 body{background-color: transparent;color:#656565;font-size:13px;overflow-x: hidden;}
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family:'Open Sans',"HelveticaNeue", "Helvetica Neue", Helvetica, Arial,sans-serif;
@@ -13,6 +13,7 @@ a:hover, a:focus{text-decoration:none;}
 }
 img{max-width: 100%}
 .imgbanner{width: 223px;margin: 0px 0px 0px 0%;}
+.posicion{margin:8px;}
 /*primary nav*/
 .nav-primary:before, .nav-primary:after {display: table;content: " ";}
 .nav-primary:after {clear: both;}

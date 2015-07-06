@@ -6,11 +6,12 @@
  */
 
 App.controller('UsuarioRegistrarController', function($scope, $location) {
-  $scope.siguiente = function () {
-    $location.path('/usuario-registrar-siguiente');
-  }
+
+	$scope.cancelar = function () {
+		$location.path('/iniciar-sesion');
+	}
   
-  $scope.continuar = function(){
-    $location.path('/iniciar-sesion');
-  }
+	$scope.continuar = function(){
+    
+	}
 });
