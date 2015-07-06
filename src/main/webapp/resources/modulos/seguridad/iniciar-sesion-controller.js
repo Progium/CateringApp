@@ -5,41 +5,41 @@
  * @constructor
  */
 
-App.controller('IniciarSesionController', function($scope, $location) {
+App.controller('IniciarSesionController', function($scope, $http,  $location, md5) {
+  $scope.user = {correo:"", contrasenna:""};
   $scope.mostrarMensaje = false;
-  $scope.usuario = {};
-  
   $scope.init = function() {
-    $scope.usuario.nombreAdmi = "administrador@gmail.com",
-    $scope.usuario.contrasennaAdmi = "1234"
-    $scope.usuario.nombreCliente = "usuariocliente@gmail.com",
-    $scope.usuario.contrasennaCliente = "1234"
   };
 
   $scope.init();
 
   $scope.iniciarSesion = function() {
-    //Si es administrador
-    if ($scope.nombre === $scope.usuario.nombreAdmi && $scope.contrasenna == $scope.usuario.contrasennaAdmi){
-     
-      $scope.mostrarMensaje = false;
-      var path = "/catering/app#/catering-registrar";
-      window.location.href = path;
-      
-    }else {
-      $scope.mostrarMensaje = true;
-    }
-    
-    //Si es usuario
-    if ($scope.nombre === $scope.usuario.nombreCliente && $scope.contrasenna == $scope.usuario.contrasennaCliente){
-      
-      $scope.mostrarMensaje = false;
-      $scope.mostrarMensaje = false;
-      var path = "/catering/app#/catering-buscar";
-      window.location.href = path;
-      
-    }else {
-      $scope.mostrarMensaje = true;
-    }
+	
+	  $http.post('rest/iniciarsesion/verificarusuario', $scope.user).success(function (iniciarSesionResponse){
+		  if(iniciarSesionResponse.code == 200){
+			  var usuario = {'idUsuario': iniciarSesionResponse.idUsuario,
+					         'apellido1': iniciarSesionResponse.apellido1,
+					         'apelido2':iniciarSesionResponse.apelido2,
+					         'correo': iniciarSesionResponse.correo,
+					         'fotografia': iniciarSesionResponse.fotografia,
+					         'nombre':iniciarSesionResponse.nombre,
+					         'tipo':iniciarSesionResponse.tipo
+			  				};
+			  $.jStorage.set("user",usuario);
+			  if (iniciarSesionResponse.tipo === 1){
+				  //va al menu de cliente
+				  var path = "/catering/app#/catering-buscar";
+				  window.location.href = path;
+			  }else{
+				  //va al menu administrador
+				  var path = "/catering/app#/catering-registrar";
+				  window.location.href = path;
+			  }
+
+		  }else{
+			  $scope.mostrarMensaje = true;
+		  }
+	  })
+ 
   };
 });

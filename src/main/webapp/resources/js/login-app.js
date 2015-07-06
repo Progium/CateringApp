@@ -2,7 +2,7 @@
 
 var PrototipoProgium = {};
 var _ScopeContainer = {};
-var App = angular.module('PrototipoProgium', ['PrototipoProgium.services', 'ngRoute']);
+var App = angular.module('PrototipoProgium', ['PrototipoProgium.services', 'ngRoute', 'angular-md5']);
 
 App.controller('MainController', function($scope, $route, $routeParams, $location) {
      $scope.$route = $route;

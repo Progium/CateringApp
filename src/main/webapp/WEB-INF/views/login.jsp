@@ -21,6 +21,8 @@
     <!--Template scripts-->
     <!--Jquery-->
     <script src="resources/first/src/js/jquery.min.js"></script>
+    <!--JStorage-->
+    <script src="resources/js/lib/jstorage.js"></script>
     <!-- Bootstrap -->
     <script src="resources/first/src/js/bootstrap.js"></script>
     <!-- app -->
@@ -46,7 +48,7 @@
     <!--Angular-->
     <script src="resources/js/lib/angular/1.3.9/angular.js"></script>
     <script src="resources/js/lib/angular/1.3.9/angular-route.js"></script>
-
+	<script src="resources/js/lib/angular/1.3.9/angular-md5.js"></script>
     <!--Aplicacion-->
     <script src="resources/js/login-app.js"></script>
     <script src="resources/js/services.js"></script>

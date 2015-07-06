@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="resources/first/src/css/style.css">
 
     <!--Template scripts-->
+    <!--JStorage-->
+    <script src="resources/js/lib/jstorage.js"></script>
     <!--Jquery-->
     <script src="resources/first/src/js/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -81,7 +83,7 @@
 	                <li><a href=""><span class="badge bg-danger pull-right">3</span>Notificaciones</a></li>
 	                <li class="divider"></li>
 	                <li><a href="docs.html">Ayuda</a></li>
-	                <li><a href="/catering/#/iniciar-sesion">Salir</a></li>
+	                <li><a ng-click="cerrarSesion()">Salir</a></li>
 	            </ul>
 	        </li>
 	    </ul>
