@@ -82,16 +82,10 @@ public class LayoutController {
 		return "modulos/seguridad/inicioSesion";
 	}
 	
-	@RequestMapping(value = "/seguridad-usuario-registrar")
-	public String getSeguridadUsuarioRegistrar()
+	@RequestMapping(value = "/seguridad-usuario-admin")
+	public String getSeguridadUsuarioAdmin()
 	{
-		return "modulos/seguridad/usuarioRegistrar";
-	}
-	
-	@RequestMapping(value = "/seguridad-usuario-registrar2")
-	public String getSeguridadUsuarioRegistrar2()
-	{
-		return "modulos/seguridad/usuarioRegistrar2";
+		return "modulos/seguridad/usuarioAdmin";
 	}
 	
 	//-------------------------------------------------------

@@ -54,7 +54,7 @@ public class LoginController {
 			iniciarSesionResponse.setIdUsuario(usuarioLogueado.getIdUsuario());
 			iniciarSesionResponse.setNombre(usuarioLogueado.getNombre());
 			iniciarSesionResponse.setApellido1(usuarioLogueado.getApellido1());
-			iniciarSesionResponse.setApelido2(usuarioLogueado.getApelido2());
+			iniciarSesionResponse.setApellido2(usuarioLogueado.getApellido2());
 			iniciarSesionResponse.setCorreo(usuarioLogueado.getCorreo());
 			iniciarSesionResponse.setFotografia(usuarioLogueado.getFotografia());
 			iniciarSesionResponse.setTipo(usuarioLogueado.getTipo().getIdTipo());

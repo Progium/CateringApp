@@ -2,15 +2,10 @@
 
 var PrototipoProgium = {};
 var _ScopeContainer = {};
-var App = angular.module('PrototipoProgium', ['PrototipoProgium.services', 'ngRoute', 'angular-md5']);
+var App = angular.module('PrototipoProgium', ['PrototipoProgium.services', 'ngRoute', 'angular-md5', 'angularFileUpload']);
 
 App.controller('MainController', function($scope, $route, $routeParams, $location) {
-     $scope.$route = $route;
-     $scope.$location = $location;
-     $scope.$routeParams = $routeParams;
      $scope.esAdministrador = true;
-     $scope.esconderMenu = false;
-     $scope.esconderHeader = false;
      
      //Almacenar MainController Scoper para cambiar las variables desde otros scopes
      _ScopeContainer['MainController'] = $scope;
@@ -23,12 +18,12 @@ App.config(function($routeProvider, $locationProvider) {
 			controller: 'IniciarSesionController'
 		})
 		.when('/usuario-registrar', {
-			templateUrl: 'modulos/seguridad-usuario-registrar',
+			templateUrl: 'modulos/seguridad-usuario-admin',
 			controller: 'UsuarioRegistrarController'
 		})
-		.when('/usuario-registrar-siguiente', {
-			templateUrl: 'modulos/seguridad-usuario-registrar2',
-			controller: 'UsuarioRegistrarController'
+		.when('/usuario-modificar/:pidUsuario', {
+			templateUrl: 'modulos/seguridad-usuario-admin',
+			controller: 'UsuarioModificarController'
 		})
 		.otherwise({
         	redirectTo: '/iniciar-sesion'

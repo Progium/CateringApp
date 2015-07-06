@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="resources/first/src/css/style.css">
 
     <!--Template scripts-->
+    <!--JStorage-->
+    <script src="resources/js/lib/jstorage.js"></script>
     <!--Jquery-->
     <script src="resources/first/src/js/jquery.min.js"></script>
     <!--JStorage-->
@@ -51,6 +53,7 @@
     <!--Angular-->
     <script src="resources/js/lib/angular/1.3.9/angular.js"></script>
     <script src="resources/js/lib/angular/1.3.9/angular-route.js"></script>
+	<script src="resources/js/lib/uploadfile/angular-file-upload.min.js"></script>
 
     <!--Aplicacion-->
     <script src="resources/js/app.js"></script>
@@ -58,7 +61,7 @@
 
     <!--Controladores-->
     <script src="resources/modulos/seguridad/iniciar-sesion-controller.js"></script>
-    <script src="resources/modulos/seguridad/usuario-registrar-controller.js"></script>
+    <script src="resources/modulos/seguridad/usuario-controller.js"></script>
     <script src="resources/modulos/catering/catering-registrar-controller.js"></script>
     <script src="resources/modulos/catering/catering-buscar-controller.js"></script>
     <script src="resources/modulos/cotizacion/cotizacion-registrar-controller.js"></script>

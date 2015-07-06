@@ -18,7 +18,7 @@ public class Usuario implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idUsuario;
 
-	private String apelido2;
+	private String apellido2;
 
 	private String apellido1;
 
@@ -66,12 +66,12 @@ public class Usuario implements Serializable {
 		this.idUsuario = idUsuario;
 	}
 
-	public String getApelido2() {
-		return this.apelido2;
+	public String getApellido2() {
+		return this.apellido2;
 	}
 
-	public void setApelido2(String apelido2) {
-		this.apelido2 = apelido2;
+	public void setApellido2(String apellido2) {
+		this.apellido2 = apellido2;
 	}
 
 	public String getApellido1() {
