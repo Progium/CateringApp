@@ -67,13 +67,10 @@ public class LoginController {
 	
 	@RequestMapping(value = "/setusuario", method = RequestMethod.POST)
 	@Transactional
-	public void setusuario(int idUsuario){
+	public void setusuario(){
 		HttpSession currentSession = request.getSession();
-		if(idUsuario != -1){
-			currentSession.setAttribute("idUsuario", idUsuario);
-		}else{
 			currentSession.setAttribute("idUsuario", 0);
-		}
+	
 	}	
 	
 }

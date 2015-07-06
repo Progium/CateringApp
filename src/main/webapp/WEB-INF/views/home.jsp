@@ -20,10 +20,12 @@
     <link rel="stylesheet" href="resources/first/src/css/style.css">
 
     <!--Template scripts-->
-    <!--JStorage-->
-    <script src="resources/js/lib/jstorage.js"></script>
     <!--Jquery-->
     <script src="resources/first/src/js/jquery.min.js"></script>
+    <!--JStorage-->
+    <script src="resources/js/lib/jstorage.js"></script>
+    <!--JSon2-->
+    <script src="resources/js/lib/json2.js"></script>
     <!-- Bootstrap -->
     <script src="resources/first/src/js/bootstrap.js"></script>
     <!-- app -->

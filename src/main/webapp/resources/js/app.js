@@ -16,7 +16,7 @@ App.controller('MainController', function($scope, $http, $route, $routeParams, $
      _ScopeContainer['MainController'] = $scope;
      
      $scope.cerrarSesion = function() {
-     	  $http.post('rest/iniciarsesion/setusuario',-1).success(function (){
+     	  $http.post('rest/iniciarsesion/setusuario').success(function (){
      		 $.jStorage.flush();
    			  window.location.href = "/catering/#/iniciar-sesion";
      	  });

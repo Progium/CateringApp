@@ -25,7 +25,7 @@ App.controller('IniciarSesionController', function($scope, $http,  $location, md
 					         'nombre':iniciarSesionResponse.nombre,
 					         'tipo':iniciarSesionResponse.tipo
 			  				};
-			  $.jStorage.set("user",usuario);
+			  $.jStorage.set("user", usuario);
 			  if (iniciarSesionResponse.tipo === 1){
 				  //va al menu de cliente
 				  var path = "/catering/app#/catering-buscar";
