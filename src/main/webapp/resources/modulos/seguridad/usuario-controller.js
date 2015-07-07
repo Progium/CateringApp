@@ -10,7 +10,7 @@ App.controller('UsuarioRegistrarController', function($scope, $location, $upload
 	$scope.files = {};
 	$scope.tituloPagina = "Registrar nuevo usuario";
 	$scope.objUsuario = {
-		tipoUsuarioId : 2
+		tipoUsuarioId : 1
 	};
 	
 	$scope.cancelar = function(){

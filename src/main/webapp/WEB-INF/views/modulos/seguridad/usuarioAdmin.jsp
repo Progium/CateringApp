@@ -118,12 +118,12 @@
 							<div class="col-lg-5">
 								<!-- radio -->
 								<div class="radio">
-									<label> <input ng-model="objUsuario.tipoUsuarioId" type="radio" name="radio" value="2">
+									<label> <input ng-model="objUsuario.tipoUsuarioId" type="radio" name="radio" value="1">
 										Cliente
 									</label>
 								</div>
 								<div class="radio">
-									<label> <input ng-model="objUsuario.tipoUsuarioId" type="radio" name="radio" value="1">
+									<label> <input ng-model="objUsuario.tipoUsuarioId" type="radio" name="radio" value="2">
 										Administrador del Catering
 									</label>
 								</div>
