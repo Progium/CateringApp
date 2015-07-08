@@ -29,31 +29,29 @@ import com.progium.catering.utils.GeneradorContrasennaUtil;
 import com.progium.catering.utils.Utils;
 import com.progium.catering.utils.SendEmail;
 
-
 /**
  * Handles requests for the application home page.
  */
 @RestController
-@RequestMapping(value ="rest/protected/usuario")
+@RequestMapping(value = "rest/protected/usuario")
 public class UsuarioController {
 
 	@Autowired
 	UsuarioServiceInterface usuarioService;
-	
+
 	@Autowired
 	GeneralServiceInterface generalService;
-	
+
 	@Autowired
 	ServletContext servletContext;
-	
+
 	public UsuarioController() {
 		// TODO Auto-generated constructor stub
 	}
 
-	@RequestMapping(value ="/registrar", method = RequestMethod.POST)
+	@RequestMapping(value = "/registrar", method = RequestMethod.POST)
 	@Transactional
-	public UsuarioResponse registrar(
-			@RequestParam("file") MultipartFile file,
+	public UsuarioResponse registrar(@RequestParam("file") MultipartFile file,
 			@RequestParam("nombre") String nombre,
 			@RequestParam("apellido1") String apellido1,
 			@RequestParam("apellido2") String apellido2,
@@ -61,12 +59,13 @@ public class UsuarioController {
 			@RequestParam("telefono1") String telefono1,
 			@RequestParam("telefono2") String telefono2,
 			@RequestParam("tipoUsuarioId") int tipoUsuarioId,
-			@RequestParam("contrasenna") String contrasenna) throws NoSuchAlgorithmException{	
-			
+			@RequestParam("contrasenna") String contrasenna)
+			throws NoSuchAlgorithmException {
+
 		UsuarioResponse us = new UsuarioResponse();
 		Tipo objTipo = generalService.getTipoById(tipoUsuarioId);
-		String resultFileName = Utils.writeToFile(file,servletContext);
-		
+		String resultFileName = Utils.writeToFile(file, servletContext);
+
 		Usuario objNuevoUsuario = new Usuario();
 		objNuevoUsuario.setNombre(nombre);
 		objNuevoUsuario.setApellido1(apellido1);
@@ -76,20 +75,24 @@ public class UsuarioController {
 		objNuevoUsuario.setTelefono2(telefono2);
 		objNuevoUsuario.setTipo(objTipo);
 		objNuevoUsuario.setFotografia(resultFileName);
-		objNuevoUsuario.setContrasenna(GeneradorContrasennaUtil.encriptarContrasenna(contrasenna));
-		
-		
+		objNuevoUsuario.setContrasenna(GeneradorContrasennaUtil
+				.encriptarContrasenna(contrasenna));
+
 		Boolean state = usuarioService.saveUsuario(objNuevoUsuario);
 
-		if(state){
+		if (state) {
 			us.setCode(200);
 			us.setCodeMessage("user created succesfully");
-			
-//			String mensaje = "Para ingresar al sistema debe utilizar las siguientes credenciales: "+
-//					 "Correo: " + objNuevoUsuario.getCorreo() + "</br>" +
-//					 " Contraseña: " + objNuevoUsuario.getContrasenna();
-//			SendEmail.sendEmail("Bienvenido a Catering App!", objNuevoUsuario.getCorreo(), "Nuevo Usuario", "Bienvenido a Catering App", mensaje);
-//			
+
+			String mensaje = "Para ingresar al sistema debe utilizar las siguientes credenciales: "
+					+ "Correo: "
+					+ objNuevoUsuario.getCorreo()
+					+ "</br>"
+					+ " Contraseña: " + objNuevoUsuario.getContrasenna();
+			SendEmail.sendEmail("Bienvenido a Catering App!",
+					objNuevoUsuario.getCorreo(), "Nuevo Usuario",
+					"Bienvenido a Catering App", mensaje);
+
 		}
 		return us;
 	}
