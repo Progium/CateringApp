@@ -27,6 +27,7 @@ import com.progium.catering.services.GeneralServiceInterface;
 import com.progium.catering.services.UsuarioServiceInterface;
 import com.progium.catering.utils.GeneradorContrasennaUtil;
 import com.progium.catering.utils.Utils;
+import com.progium.catering.utils.SendEmail;
 
 
 /**
@@ -77,10 +78,18 @@ public class UsuarioController {
 		objNuevoUsuario.setFotografia(resultFileName);
 		objNuevoUsuario.setContrasenna(GeneradorContrasennaUtil.encriptarContrasenna(contrasenna));
 		
+		
 		Boolean state = usuarioService.saveUsuario(objNuevoUsuario);
+
 		if(state){
 			us.setCode(200);
 			us.setCodeMessage("user created succesfully");
+			
+//			String mensaje = "Para ingresar al sistema debe utilizar las siguientes credenciales: "+
+//					 "Correo: " + objNuevoUsuario.getCorreo() + "</br>" +
+//					 " Contraseña: " + objNuevoUsuario.getContrasenna();
+//			SendEmail.sendEmail("Bienvenido a Catering App!", objNuevoUsuario.getCorreo(), "Nuevo Usuario", "Bienvenido a Catering App", mensaje);
+//			
 		}
 		return us;
 	}
