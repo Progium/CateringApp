@@ -48,7 +48,7 @@ public class UsuarioController {
 	public UsuarioController() {
 		// TODO Auto-generated constructor stub
 	}
-
+	//Obtiene los parametros que le envia el controller por medio del metodo post.
 	@RequestMapping(value = "/registrar", method = RequestMethod.POST)
 	@Transactional
 	public UsuarioResponse registrar(@RequestParam("file") MultipartFile file,
@@ -61,7 +61,7 @@ public class UsuarioController {
 			@RequestParam("tipoUsuarioId") int tipoUsuarioId,
 			@RequestParam("contrasenna") String contrasenna)
 			throws NoSuchAlgorithmException {
-
+		//Crea un nuevo usuario response le setea los datos y le pasa el objeto de usuario al servicio de usuario
 		UsuarioResponse us = new UsuarioResponse();
 		Tipo objTipo = generalService.getTipoById(tipoUsuarioId);
 		String resultFileName = Utils.writeToFile(file, servletContext);
@@ -93,6 +93,9 @@ public class UsuarioController {
 					objNuevoUsuario.getCorreo(), "Nuevo Usuario",
 					"Bienvenido a Catering App", mensaje);
 
+		}else{
+			us.setCode(401);
+			us.setErrorMessage("Unauthorized User hola");
 		}
 		return us;
 	}

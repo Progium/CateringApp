@@ -105,6 +105,7 @@
 					</div>
 				</section>
 			</div>
+			<!-- Datos de la cuenta -->
 			<div class="col-sm-6">
 				<section class="panel">
 					<div class="panel-body">

@@ -16,11 +16,11 @@ App.controller('UsuarioRegistrarController', function($scope, $location, $upload
 	$scope.cancelar = function(){
 		$location.path('/iniciar-sesion');
 	}
-	
+	//Guarda los datos ingresados por el usuario.
 	$scope.guardar = function() {
 		if(validarDatos($scope.objUsuario) && this.crearUsuario.$valid){
 			var usuarioFoto = $scope.files[0];
-			
+			//Guarda la información en variables y se las pasa al controlador de usuario de java.
 			$scope.upload = $upload.upload({
 				url : 'rest/protected/usuario/registrar',
 				data : {
@@ -36,7 +36,7 @@ App.controller('UsuarioRegistrarController', function($scope, $location, $upload
 				},
 				file : usuarioFoto
 			}).success(function(contractUsuarioResponse, status, headers, config) {
-				// Rent is uploaded successfully
+				//Muestra un mensaje si el usuario es registrado satisfactoriamente en el sistema.
 				if(contractUsuarioResponse.code == 200){
 					alert("El usuario se registro correctamente.");
 					$location.path('/iniciar-sesion');
@@ -45,7 +45,7 @@ App.controller('UsuarioRegistrarController', function($scope, $location, $upload
 		}
 		
 	}
-	
+	//Guarda los archivos seleccionados en el scope.files.
 	$scope.onFileSelect = function($files) {
     	$scope.files = $files;
     };
