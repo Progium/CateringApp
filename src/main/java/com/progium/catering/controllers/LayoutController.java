@@ -10,10 +10,10 @@ public class LayoutController {
 	//-------------------------------------------------------
 	//Catering
 	//-------------------------------------------------------
-	@RequestMapping(value = "/catering-registrar")
-	public String getCateringRegistrar()
+	@RequestMapping(value = "/catering-admin")
+	public String getCateringAdmin()
 	{
-		return "modulos/catering/cateringRegistrar";
+		return "modulos/catering/cateringAdmin";
 	}
 	
 	@RequestMapping(value = "/catering-buscar")

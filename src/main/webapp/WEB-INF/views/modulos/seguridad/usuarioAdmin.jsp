@@ -85,7 +85,7 @@
 							<div class="col-lg-8">
 								<input ng-model="objUsuario.telefono1" type="text"
 									name="telefono1" placeholder="88888888" class="form-control"
-									ng-pattern="/^(\d)+$/" /> <span class="error-message"
+									ng-pattern="/^(\d)+$/" required/> <span class="error-message"
 									ng-show="crearUsuario.telefono1.$error.pattern">Debe
 									ingresar solo números</span>
 							</div>

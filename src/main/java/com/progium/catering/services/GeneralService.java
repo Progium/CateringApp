@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.progium.catering.ejb.Tipo;
+import com.progium.catering.ejb.Provincia;
 import com.progium.catering.repositories.GeneralRepository;
 import com.progium.catering.repositories.TipoRepository;
+import com.progium.catering.repositories.ProvinciaRepository;
 
 @Service
 public class GeneralService implements GeneralServiceInterface{		
@@ -17,6 +19,9 @@ public class GeneralService implements GeneralServiceInterface{
 	
 	@Autowired
 	TipoRepository tipoRepository;
+	
+	@Autowired
+	ProvinciaRepository provinciaRepository;
 	
 
 	@Override
@@ -29,4 +34,13 @@ public class GeneralService implements GeneralServiceInterface{
 		return tipoRepository.findOne(tipoUsuarioId);
 	}
 
+	@Override
+	public List<Provincia> getAllProvincia() {
+		return provinciaRepository.findAll();
+	}
+	
+	@Override
+	public Provincia getProvinciaById(Integer idProvincia) {
+		return provinciaRepository.findOne(idProvincia);
+	}
 }

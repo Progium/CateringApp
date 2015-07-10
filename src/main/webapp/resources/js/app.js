@@ -33,8 +33,12 @@ App.config(function($routeProvider, $locationProvider) {
 			controller: 'UsuarioModificarController'
 		})
 		.when('/catering-registrar', {
-			templateUrl: 'modulos/catering-registrar',
+			templateUrl: 'modulos/catering-admin',
 			controller: 'CateringRegistrarController'
+		})
+		.when('/catering-modificar/:pidCatering', {
+			templateUrl: 'modulos/catering-admin',
+			controller: 'CateringModificarController'
 		})
 		.when('/catering-buscar', {
 			templateUrl: 'modulos/catering-buscar',

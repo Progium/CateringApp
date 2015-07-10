@@ -60,7 +60,7 @@
     <!--Controladores-->
     <script src="resources/modulos/seguridad/iniciar-sesion-controller.js"></script>
     <script src="resources/modulos/seguridad/usuario-controller.js"></script>
-    <script src="resources/modulos/catering/catering-registrar-controller.js"></script>
+    <script src="resources/modulos/catering/catering-controller.js"></script>
     <script src="resources/modulos/catering/catering-buscar-controller.js"></script>
     <script src="resources/modulos/cotizacion/cotizacion-registrar-controller.js"></script>
     <script src="resources/modulos/producto/producto-registrar-controller.js"></script>

@@ -95,7 +95,7 @@ public class UsuarioController {
 
 		}else{
 			us.setCode(401);
-			us.setErrorMessage("Unauthorized User hola");
+			us.setErrorMessage("Unauthorized User");
 		}
 		return us;
 	}
