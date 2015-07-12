@@ -48,30 +48,54 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 		$scope.guardar = function() {
 			if(this.crearCatering.$valid){
 				var cateringLogo = $scope.files[0];
-				//Guarda la información en variables y se las pasa al controlador de catering de java.
-				$scope.upload = $upload.upload({
-					url : 'rest/protected/catering/registrar',
-					data : {
-						administradorId: objUsuario.idUsuario,
-						nombre: $scope.objCatering.nombre,
-						cedulaJuridica : "1223445",
-						direccion: $scope.objCatering.direccion,
-						telefono1: $scope.objCatering.telefono1,
-						telefono2: $scope.objCatering.telefono2,
-						horario: $scope.objCatering.horarioAtencion,
-						provinciaId: 1,
-						cantonId: 1,
-						distritoId: 1,
-						needAccess: "false"
-					},
-					file : cateringLogo
-				}).success(function(contractCateringResponse, status, headers, config) {
-					//Muestra un mensaje si el usuario es registrado satisfactoriamente en el sistema.
-					if(contractCateringResponse.code == 200){
-						alert("El catering se registro correctamente.");
-						//$location.path('/iniciar-sesion');
-					}
-				});
+				var datosCatering = {};
+				var urlRegistrar = 'rest/protected/catering/registrar';
+				datosCatering = {
+					administradorId: objUsuario.idUsuario,
+					nombre: $scope.objCatering.nombre,
+					cedulaJuridica : $scope.objCatering.cedulaJuridica,
+					direccion: $scope.objCatering.direccion,
+					telefono1: $scope.objCatering.telefono1,
+					telefono2: $scope.objCatering.telefono2,
+					horario: $scope.objCatering.horarioAtencion,
+					provinciaId: 1,
+					cantonId: 1,
+					distritoId: 1,
+					needAccess: "false"
+				}
+				var req = {
+						 method: 'POST',
+						 url: urlRegistrar,
+						 data: datosCatering
+						}
+				if(cateringLogo){
+					//Guarda la información en variables y se las pasa al controlador de catering de java.
+					$scope.upload = $upload.upload({
+						url : urlRegistrar,
+						data : datosCatering,
+						file : cateringLogo
+					}).success(function(contractCateringResponse, status, headers, config) {
+						//Muestra un mensaje si el usuario es registrado satisfactoriamente en el sistema.
+						if(contractCateringResponse.code == 200){
+							alert("El catering se registro correctamente.");
+							//$location.path('/iniciar-sesion');
+						}else{
+							alert("No se pudo registrar el catering.");
+						 }
+					});
+				}else{
+//					$http.post(urlRegistrar,datosCatering).success(function(contractCateringResponse, status, headers, config) {
+//							//Muestra un mensaje si el usuario es registrado satisfactoriamente en el sistema.
+//							if(contractCateringResponse.code == 200){
+//								alert("El catering se registro correctamente.");
+//								//$location.path('/iniciar-sesion');
+//							}else{
+//								alert("No se pudo registrar el catering.");
+//							 }
+//							
+//						});
+				}
+				
 			}
 			
 		}
