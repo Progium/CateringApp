@@ -9,19 +9,23 @@
 				</h4>
 			</div>
 			<section class="panel">
+			
 				<div class="panel-body">
 					<div class="col-md-5">
-						<panel title="eflkem">
-						<p>jdksfnkdsjnkjsdnfkjndsknk</p>
-						Buscar: <input type="text" ng-model="search.nombre"
+						<h5>Lista general de productos</h5>
+						<panel title="Lista general de productos">
+						Buscar: <input type="search" ng-model="q" placeholder="búsqueda de productos"
 							style="margin-bottom: 10px">
 						<table class="table-bordered table">
 							<th>
 							<th>Nombre</th>
-							<tr ng-repeat="producto in listaProductos | filter:search ">
-								<td><input type="checkbox" ng-model="producto.done"></td>
-								<td><span class="done-{{producto.done}}">{{producto.nombre}}
-								</span></td>
+							<tr ng-repeat="producto in productos | filter:q as results ">
+								<td>
+									<input type="checkbox">
+								</td>
+								<td>
+									<span>{{producto.nombre}}</span>
+								</td>
 							</tr>
 						</table>
 						</panel>
