@@ -111,12 +111,44 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 });
 
 App.controller('CateringModificarController', function($scope, $location, $routeParams) {
-	$scope.files = {};
-	$scope.tituloPagina = "Modificar datos del catering";
-	$scope.objUsuario = {};
-	
-	//$routeParams.pidCatering
-	
+	var objUsuario = $.jStorage.get("user");
+	if(objUsuario){
+		_ScopeContainer['MainController'].esAdministrador = true;
+		$scope.objUsuario = {
+				idCatering: $routeParams.pidCatering
+		};
+		$scope.files = {};
+		$scope.tituloPagina = "Modificar datos del catering";
+		$scope.listaProvincia = [];
+		$scope.listaCanton = [];
+		$scope.listaDistrito = [];
+		$scope.objCatering = {};
+		
+	    $scope.init = function() {
+	    	//Obtiene la lista de provincias
+	    	$http.get('rest/protected/provincia/getAll')
+			.success(function(provinciaResponse) {
+
+				$scope.listaProvincia = provinciaResponse.listaProvincia;
+				$scope.objCatering.idProvincia = $scope.listaProvincia[0].idProvincia;	
+			});
+	    	//Obtiene la lista de cantones
+	    	$http.get('rest/protected/canton/getAll')
+			.success(function(cantonResponse) {
+
+				$scope.listaCanton = cantonResponse.listaCanton;
+				$scope.objCatering.idCanton = $scope.listaCanton[0].idCanton;	
+			});
+	    	//Obtiene la lista de distritos
+	    	$http.get('rest/protected/distrito/getAll')
+			.success(function(distritoResponse) {
+				$scope.listaDistrito = cantonResponse.listaDistrito;
+				$scope.objCatering.idDistrito = $scope.listaDistrito[0].idDistrito;	
+			});
+	    	
+	    };
+	    
+	    $scope.init();
 	$scope.cancelar = function(){
 		$location.path('/');
 	}
