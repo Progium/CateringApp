@@ -79,7 +79,8 @@ public class UsuarioController {
 				.encriptarContrasenna(contrasenna));
 
 		Boolean state = usuarioService.saveUsuario(objNuevoUsuario);
-
+		
+		
 		if (state) {
 			us.setCode(200);
 			us.setCodeMessage("user created succesfully");
@@ -88,7 +89,7 @@ public class UsuarioController {
 					+ "Correo: "
 					+ objNuevoUsuario.getCorreo()
 					+ "</br>"
-					+ " Contraseña: " + objNuevoUsuario.getContrasenna();
+					+ " Contraseña: " + contrasenna.toString();
 			SendEmail.sendEmail("Bienvenido a Catering App!",
 					objNuevoUsuario.getCorreo(), "Nuevo Usuario",
 					"Bienvenido a Catering App", mensaje);
