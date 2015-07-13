@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.progium.catering.contracts.CantonResponse;
+import com.progium.catering.contracts.CantonRequest;
 import com.progium.catering.ejb.Canton;
 import com.progium.catering.pojo.CantonPOJO;
 import com.progium.catering.services.GeneralServiceInterface;
@@ -40,6 +41,25 @@ public class CantonController {
 	
 	@RequestMapping(value ="/getAll", method = RequestMethod.GET)
 	public CantonResponse getAll(){
+		
+		CantonResponse canton = new CantonResponse();
+		
+		List<Canton> listaCanton = generalService.getAllCanton();
+		List<CantonPOJO> listaCantonPojo = new ArrayList<CantonPOJO>();
+		
+		for (Canton can : listaCanton){
+			CantonPOJO nCanton = new CantonPOJO();
+			PojoUtils.pojoMappingUtility(nCanton,can);
+			listaCantonPojo.add(nCanton);
+		}
+		
+		canton.setListaCanton(listaCantonPojo);
+		
+		return canton;		
+	}
+
+	@RequestMapping(value ="/getByProvincia", method = RequestMethod.POST)
+	public CantonResponse getByProvincia(@RequestBody CantonRequest cantonRequest) throws NoSuchAlgorithmException{{
 		
 		CantonResponse canton = new CantonResponse();
 		

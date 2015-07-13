@@ -22,13 +22,6 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 				$scope.listaProvincia = provinciaResponse.listaProvincia;
 				$scope.objCatering.idProvincia = $scope.listaProvincia[0].idProvincia;	
 			});
-	    	//Obtiene la lista de cantones
-	    	$http.get('rest/protected/canton/getAll')
-			.success(function(cantonResponse) {
-
-				$scope.listaCanton = cantonResponse.listaCanton;
-				$scope.objCatering.idCanton = $scope.listaCanton[0].idCanton;	
-			});
 	    	//Obtiene la lista de distritos
 	    	$http.get('rest/protected/distrito/getAll')
 			.success(function(distritoResponse) {
@@ -40,6 +33,16 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 	    
 	    $scope.init();
 		
+		//Trae los cantones de la provincia seleccionada
+	    $scope.llenarCanton = function() {
+	    	//Obtiene la lista de cantones
+	    	$http.post('rest/protected/canton/getByProvincia', $scope.objCatering.idProvincia)
+			.success(function(cantonResponse) {
+				$scope.listaCanton = cantonResponse.listaCanton;
+				$scope.objCatering.idCanton = $scope.listaCanton[0].idCanton;	
+			});
+	    };
+	    
 		$scope.cancelar = function(){
 			$location.path('/iniciar-sesion');
 		}
@@ -102,7 +105,7 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 		$scope.onFileSelect = function($files) {
 	    	$scope.files = $files;
 	    };
-		
+
 	}else{
 		var path = "/catering/#/iniciar-sesion";
 		window.location.href = path;
