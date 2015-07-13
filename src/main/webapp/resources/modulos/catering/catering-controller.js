@@ -19,7 +19,6 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 	    	//Obtiene la lista de provincias
 	    	$http.get('rest/protected/provincia/getAll')
 			.success(function(provinciaResponse) {
-
 				$scope.listaProvincia = provinciaResponse.listaProvincia;
 				$scope.objCatering.idProvincia = $scope.listaProvincia[0].idProvincia;	
 			});
@@ -33,7 +32,7 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 	    	//Obtiene la lista de distritos
 	    	$http.get('rest/protected/distrito/getAll')
 			.success(function(distritoResponse) {
-				$scope.listaDistrito = cantonResponse.listaDistrito;
+				$scope.listaDistrito = distritoResponse.listaDistrito;
 				$scope.objCatering.idDistrito = $scope.listaDistrito[0].idDistrito;	
 			});
 	    	
@@ -149,11 +148,13 @@ App.controller('CateringModificarController', function($scope, $location, $route
 	    };
 	    
 	    $scope.init();
-	$scope.cancelar = function(){
-		$location.path('/');
-	}
+		$scope.cancelar = function(){
+			$location.path('/');
+		}
+		
+		$scope.guardar = function() {
+			$location.path('/iniciar-sesion');
+		}
+	};   
 
-	$scope.guardar = function() {
-		$location.path('/iniciar-sesion');
-	}
 });
