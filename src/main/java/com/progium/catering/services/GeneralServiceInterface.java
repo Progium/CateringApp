@@ -18,6 +18,7 @@ public interface GeneralServiceInterface {
 	//Obtiene una lista de cantones
 	List<Canton> getAllCanton();
 	Canton getCantonById(Integer idCanton);
+	List<Canton> getCantonByProvincia(Integer idProvincia);
 	//Obtiene una lista de distritos
 	List<Distrito> getAllDistrito();
 	Distrito getDistritoById(Integer idDistrito);

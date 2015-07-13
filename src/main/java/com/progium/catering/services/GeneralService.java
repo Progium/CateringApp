@@ -74,6 +74,11 @@ public class GeneralService implements GeneralServiceInterface{
 	}
 	
 	@Override
+	public List<Canton> getCantonByProvincia(Integer idProvincia) {
+		return cantonRepository.findCantonByProvincia(idProvincia);
+	}
+	
+	@Override
 	public List<Distrito> getAllDistrito() {
 		return distritoRepository.findAll();
 	}

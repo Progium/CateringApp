@@ -36,7 +36,7 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 		//Trae los cantones de la provincia seleccionada
 	    $scope.llenarCanton = function() {
 	    	//Obtiene la lista de cantones
-	    	$http.post('rest/protected/canton/getByProvincia', $scope.objCatering.idProvincia)
+	    	$http.post('rest/protected/canton/getCantonByProvincia', $scope.objCatering.idProvincia)
 			.success(function(cantonResponse) {
 				$scope.listaCanton = cantonResponse.listaCanton;
 				$scope.objCatering.idCanton = $scope.listaCanton[0].idCanton;	

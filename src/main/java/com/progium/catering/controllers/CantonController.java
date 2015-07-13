@@ -58,12 +58,12 @@ public class CantonController {
 		return canton;		
 	}
 
-	@RequestMapping(value ="/getByProvincia", method = RequestMethod.POST)
-	public CantonResponse getByProvincia(@RequestBody CantonRequest cantonRequest) throws NoSuchAlgorithmException{{
+	@RequestMapping(value ="/getCantonByProvincia", method = RequestMethod.POST)
+	public CantonResponse getByProvincia(@RequestBody CantonRequest cantonRequest) throws NoSuchAlgorithmException{
 		
 		CantonResponse canton = new CantonResponse();
 		
-		List<Canton> listaCanton = generalService.getAllCanton();
+		List<Canton> listaCanton = generalService.getCantonByProvincia(cantonRequest.getProvinciaId());
 		List<CantonPOJO> listaCantonPojo = new ArrayList<CantonPOJO>();
 		
 		for (Canton can : listaCanton){
