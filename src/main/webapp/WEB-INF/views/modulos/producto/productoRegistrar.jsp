@@ -8,33 +8,53 @@
 					<i class="fa fa-edit"></i>Mi Catálogo
 				</h4>
 			</div>
-			<section class="panel">
-			
-				<div class="panel-body">
-					<div class="col-md-5">
-						<h5>Lista general de productos</h5>
-						<panel title="Lista general de productos">
-						Buscar: <input type="search" ng-model="q" placeholder="búsqueda de productos"
+			<div class="col-xs-6">
+				<section class="panel">
+					<header class="panel-heading bg-white">
+						<div class="text-center h5">Productos seleccionados</div>
+						<div class="panel-body pull-in text-center">
+							Buscar: <input type="search" ng-model="a" placeholder="búsqueda de productos"
 							style="margin-bottom: 10px">
 						<table class="table-bordered table">
 							<th>
 							<th>Nombre</th>
-							<tr ng-repeat="producto in productos | filter:q as results ">
+							<tr ng-repeat="productoSelec in productosSelecc | filter:a as results" ng-click="removido(productoSelec, 'removido')">
 								<td>
-									<input type="checkbox">
+									<input type="checkbox" ng-model="producto.done">
+								</td>
+								<td>
+									<span>{{productoSelec.nombre}}</span>
+								</td>
+							</tr>
+						</table>
+						</div>
+					</header>
+				</section>
+			</div>
+			
+			<div class="col-xs-6">
+				<section class="panel">
+					<header class="panel-heading bg-white">
+						<div class="text-center h5">Lista de productos</div>
+						<div class="panel-body pull-in text-center">
+							Buscar: <input type="search" ng-model="q" placeholder="búsqueda de productos"
+							style="margin-bottom: 10px">
+						<table class="table-bordered table">
+							<th>
+							<th>Nombre</th>
+							<tr ng-repeat="producto in productos | filter:q as results"  ng-click="seleccionado(producto, 'agregar')">
+								<td>
+									<input type="checkbox" ng-model="producto.done">
 								</td>
 								<td>
 									<span>{{producto.nombre}}</span>
 								</td>
 							</tr>
-						</table>
-						</panel>
-					</div>
-
-
-				</div>
-			</section>
-		</div>
-		<div class="col-sm-2"></div>
+						</table>		
+						</div>
+					</header>
+				</section>
+			</div>
+	</div>					
 	</div>
 </section>
