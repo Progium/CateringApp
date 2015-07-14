@@ -44,6 +44,10 @@ App.config(function($routeProvider, $locationProvider) {
 			templateUrl: 'modulos/catering-buscar',
 			controller: 'CateringBuscarController'
 		})
+		.when('/catering-listar', {
+			templateUrl: 'modulos/catering-listar',
+			controller: 'CateringListarController'
+		})
 		.when('/producto-registrar', {
 			templateUrl: 'modulos/producto-registrar',
 			controller: 'ProductoRegistrarController'

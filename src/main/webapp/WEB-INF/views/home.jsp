@@ -69,6 +69,8 @@
     <script src="resources/modulos/subasta/subasta-registrar-controller.js"></script>
     <script src="resources/modulos/subasta/subasta-listar-controller.js"></script>
     <script src="resources/modulos/compartido/compartido-controller.js"></script>
+    <script src="resources/modulos/catering/catering-listar-controller.js"></script>
+    
 </head>
 
 <body ng-controller="MainController">
