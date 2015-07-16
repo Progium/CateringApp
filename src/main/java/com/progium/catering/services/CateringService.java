@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.progium.catering.repositories.CateringRepository;
 import com.progium.catering.ejb.Catering;
+import com.progium.catering.ejb.Producto;
 
 @Service
 public class CateringService implements CateringServiceInterface{
@@ -25,4 +26,21 @@ public class CateringService implements CateringServiceInterface{
 		return result;
 		
 	}
+	
+	@Override
+	public List<Catering> getNoUserCateringList(List<Integer> list) {
+		return cateringRepository.findByIdCateringNotIn(list);
+	}
+
+	@Override
+	public Catering getCatering(int idCatering) {
+		return cateringRepository.findOne(idCatering);
+	}
+		
+	@Override
+	public List<Catering> getAll() {
+		return (List<Catering>) cateringRepository.findAll(); 
+	}
+	
+	
 }

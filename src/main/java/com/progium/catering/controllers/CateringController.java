@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.progium.catering.contracts.ProductoResponse;
 import com.progium.catering.contracts.TipoResponse;
 import com.progium.catering.contracts.CateringResponse;
 import com.progium.catering.contracts.CateringRequest;
@@ -24,6 +25,7 @@ import com.progium.catering.contracts.UsuarioResponse;
 import com.progium.catering.contracts.ProvinciaResponse;
 import com.progium.catering.contracts.CantonResponse;
 import com.progium.catering.contracts.DistritoResponse;
+import com.progium.catering.ejb.Producto;
 import com.progium.catering.ejb.Provincia;
 import com.progium.catering.ejb.Canton;
 import com.progium.catering.ejb.Distrito;
@@ -31,9 +33,13 @@ import com.progium.catering.ejb.Catering;
 import com.progium.catering.ejb.Tipo;
 import com.progium.catering.ejb.Usuario;
 import com.progium.catering.pojo.CateringPOJO;
+import com.progium.catering.pojo.ProductoPOJO;
 import com.progium.catering.services.GeneralServiceInterface;
 import com.progium.catering.services.CateringServiceInterface;
+import com.progium.catering.services.UsuarioService;
+import com.progium.catering.services.UsuarioServiceInterface;
 import com.progium.catering.utils.GeneradorContrasennaUtil;
+import com.progium.catering.utils.PojoUtils;
 import com.progium.catering.utils.SendEmail;
 import com.progium.catering.utils.Utils;
 
@@ -49,9 +55,15 @@ public class CateringController {
 
 	@Autowired
 	GeneralServiceInterface generalService;
+	
+	@Autowired
+	UsuarioServiceInterface usuarioService;
 
 	@Autowired
 	ServletContext servletContext;
+	
+	@Autowired
+	HttpServletRequest request;	
 
 	public CateringController() {
 		// TODO Auto-generated constructor stub
@@ -106,4 +118,48 @@ public class CateringController {
 		return cs;
 	}
 
+	
+	@RequestMapping(value ="/getAll", method = RequestMethod.GET)
+	@Transactional
+	public CateringResponse getAll(){
+		
+		CateringResponse cr = new CateringResponse();
+		
+		HttpSession currentSession = request.getSession();
+		int idUsuario = (int) currentSession.getAttribute("idUsuario");
+		Usuario usuarios = usuarioService.getSessionUsuario(idUsuario);
+		
+		List<Catering> list = usuarios.getCaterings();
+		List<Integer> cateringIds = new ArrayList<Integer>();
+		
+		for (Catering cat : list){
+			cateringIds.add(cat.getIdCatering());
+		}
+		
+		List<Catering> noCateringList = new ArrayList<Catering>();
+		if(cateringIds.size() ==  0){
+			noCateringList = cateringService.getAll();
+		}else{
+			noCateringList = cateringService.getNoUserCateringList(cateringIds);
+		}
+		
+		
+		System.out.println(list.size());
+		System.out.println(noCateringList.size());
+		
+		List<CateringPOJO> viewList = new ArrayList<CateringPOJO>();
+		for (Catering origin : noCateringList){
+			CateringPOJO target = new CateringPOJO();
+			PojoUtils.pojoMappingUtility(target,origin);
+			viewList.add(target);
+		}
+		
+		/*cr.setCatering(viewList);*/
+		cr.setCatering(viewList);
+		cr.setCode(200);
+		
+		return cr;
+			
+	}
+	
 }

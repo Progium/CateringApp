@@ -25,5 +25,10 @@ public class UsuarioService implements UsuarioServiceInterface{
 		return result;
 		
 	}
+		
+	@Override
+	public Usuario getSessionUsuario (int idUsuario) {
+		return usuarioRepository.findOne(idUsuario);
+	}
 
 }
