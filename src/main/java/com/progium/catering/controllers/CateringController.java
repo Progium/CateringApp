@@ -92,6 +92,7 @@ public class CateringController {
 		objNuevoCatering.setCantonId(cantonId);
 		objNuevoCatering.setDistrito(objDistrito);
 		objNuevoCatering.setFotografia(resultFileName);
+		objNuevoCatering.setEstado(false);
 
 		Boolean state = cateringService.saveCatering(objNuevoCatering);
 

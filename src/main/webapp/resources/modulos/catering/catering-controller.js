@@ -119,8 +119,7 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 					horario: $scope.objCatering.horarioAtencion,
 					provinciaId: $scope.objCatering.idProvincia,
 					cantonId: $scope.objCatering.idCanton,
-					distritoId: $scope.objCatering.idDistrito,
-					needAccess: "false"
+					distritoId: $scope.objCatering.idDistrito
 				}
 				var req = {
 						 method: 'POST',
@@ -143,7 +142,7 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 						 }
 					});
 				}else{
-					$http(req).success(function(contractCateringResponse, status, headers, config) {
+					 $http.post(urlRegistrar, datosCatering).success(function(contractCateringResponse, status, headers, config) {
 							//Muestra un mensaje si el usuario es registrado satisfactoriamente en el sistema.
 							if(contractCateringResponse.code == 200){
 								alert("El catering se registro correctamente.");
