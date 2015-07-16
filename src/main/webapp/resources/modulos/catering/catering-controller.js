@@ -12,6 +12,7 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 		$scope.tituloPagina = "Registrar nuevo catering";
 		$scope.listaProvincia = [];
 		$scope.listaCanton = [];
+		$scope.listaTipoEvento = [];
 		var listaCantones = [];
 		var cantones =  [];
 		var listaDistritos = [];
@@ -20,6 +21,13 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 		$scope.objCatering = {};
 		
 	    $scope.init = function() {
+	    	
+	    	//Obtiene los tipos de eventos
+	    	$http.get('rest/protected/tipo/getTipoEvento')
+			.success(function(tipoResponse) {
+				$scope.listaTipoEvento = tipoResponse.tipos;
+			});
+	    	
 	    	//Obtiene la lista de provincias
 	    	$http.get('rest/protected/provincia/getAll')
 			.success(function(provinciaResponse) {
@@ -89,6 +97,7 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 	    	$scope.listaDistrito.length = 0;
 	    	
 			for (var i = 0; i < listaDistritos.length; i++) {
+				console.log(listaDistritos[i].canton);
 				if(listaDistritos[i].canton == $scope.objCatering.idCanton){
 					//Agregar distritos del canton seleccionado
 				    var ObjNuevoDistrito = listaDistritos[i];

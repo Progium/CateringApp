@@ -78,12 +78,20 @@
 									ingresar 8 números como mínimo.</span>
 							</div>
 						</div>
-						<div class="form-group"></div>
-						<div class="form-group"></div>
-						<div class="form-group"></div>
-						<div class="form-group"></div>
-						<div class="form-group"></div>
-						<div class="form-group"></div>
+						<!-- Tipo eventos -->
+<!-- 						<div class="form-group"> -->
+<!-- 							<label class="col-lg-3 control-label">Tipo de Eventos</label> -->
+<!-- 							<div class="col-lg-8"> -->
+<!-- 								<table class="table-bordered table"> -->
+<!-- 									<th> -->
+<!-- 									<th>Nombre</th> -->
+<!-- 									<tr ng-repeat="tipoEvento in listaTipoEvento"> -->
+<!-- 										<td><input type="checkbox"></td> -->
+<!-- 										<td><span>{{tipoEvento.nombre}}</span></td> -->
+<!-- 									</tr> -->
+<!-- 								</table> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
 						<div class="form-group"></div>
 					</div>
 				</section>

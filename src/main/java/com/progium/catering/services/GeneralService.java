@@ -44,6 +44,11 @@ public class GeneralService implements GeneralServiceInterface{
 	}
 
 	@Override
+	public List<Tipo> getTipoByDescripcion(String descripcion) {
+		return tipoRepository.findTipoByDescripcion(descripcion);
+	}
+	
+	@Override
 	public Tipo getTipoById(Integer tipoUsuarioId) {
 		return tipoRepository.findOne(tipoUsuarioId);
 	}

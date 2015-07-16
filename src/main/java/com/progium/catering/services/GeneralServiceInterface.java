@@ -12,6 +12,7 @@ public interface GeneralServiceInterface {
 
 	List<Tipo> getAllTipo();
 	Tipo getTipoById(Integer idTipoUsuario);
+	List<Tipo> getTipoByDescripcion(String descripcion);
 	//Obtiene una lista de provincias
 	List<Provincia> getAllProvincia();
 	Provincia getProvinciaById(Integer idProvincia);

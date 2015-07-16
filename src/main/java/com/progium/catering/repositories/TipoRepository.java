@@ -10,4 +10,5 @@ public interface TipoRepository extends CrudRepository<Tipo,Integer> {
 
 	List<Tipo> findAll();
 	
+	List<Tipo> findTipoByDescripcion(String descripcion);
 }
