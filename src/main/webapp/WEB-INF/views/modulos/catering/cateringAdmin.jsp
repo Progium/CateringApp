@@ -121,7 +121,7 @@
 							<label class="col-lg-3 control-label">Canton</label>
 							<div class="col-lg-4">
 								<select name="idCanton" id="idCanton" class="form-control"
-									ng-model="objCatering.idCanton"
+									ng-model="objCatering.idCanton" ng-change="llenarDistrito()"
 									ng-options="c.idCanton as c.nombre for c in listaCanton">
 								</select>
 							</div>
