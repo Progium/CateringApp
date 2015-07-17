@@ -58,7 +58,7 @@ public class CateringController {
 	}
 	
 	//Obtiene los parametros que le envia el controller por medio del metodo post.
-	@RequestMapping(value = "/registrar", method = RequestMethod.POST)
+	@RequestMapping(value = "/registrarLogo", method = RequestMethod.POST)
 	@Transactional
 	public CateringResponse registrar(@RequestParam("file") MultipartFile file,
 			@RequestParam("administradorId") int administradorId,
