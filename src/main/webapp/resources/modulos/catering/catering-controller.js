@@ -93,43 +93,31 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 					distritoId: $scope.objCatering.idDistrito
 				}
 				
-				if(cateringLogo){
-					//Guarda la información en variables y se las pasa al controlador de catering de java.
-					$scope.upload = $upload.upload({
-						url : 'rest/protected/catering/registrar',
-						data : datosCatering,
-						file : cateringLogo
-					}).success(function(contractCateringResponse, status, headers, config) {
-						//Muestra un mensaje si el usuario es registrado satisfactoriamente en el sistema.
-						if(contractCateringResponse.code == 200){
-							alert("El catering se registro correctamente.");
-							//$location.path('/iniciar-sesion');
+				$http.post('rest/protected/catering/registrar', datosCatering).success(function (contractCateringResponse){
+					if(contractCateringResponse.code == 200){
+						if(cateringLogo){
+							//Guarda la información en variables y se las pasa al controlador de catering de java.
+							$scope.upload = $upload.upload({
+								url : 'rest/protected/catering/registrarFoto',
+								data : {
+									idCatering : contractCateringResponse.idCatering
+								},
+								file : cateringLogo
+							}).success(function(cateringResponse, status, headers, config) {
+								//Muestra un mensaje si el catering es registrado satisfactoriamente en el sistema.
+								if(cateringResponse.code == 200){
+									alert("El catering se registro correctamente.");
+								}else{
+									alert("No se pudo registrar el logo.");
+								 }
+							});
 						}else{
-							alert("No se pudo registrar el catering.");
-						 }
-					});
-				}else{
-//					 $http.post(urlRegistrar, datosCatering).success(function(contractCateringResponse, status, headers, config) {
-//							//Muestra un mensaje si el usuario es registrado satisfactoriamente en el sistema.
-//							if(contractCateringResponse.code == 200){
-//								alert("El catering se registro correctamente.");
-//								//$location.path('/iniciar-sesion');
-//							}else{
-//								alert("No se pudo registrar el catering.");
-//							 }							
-//						});
-
-					$http.post('rest/protected/catering/crear', datosCatering).success(function (contractCateringResponse){
-						if(contractCateringResponse.code == 200){
-	
 							alert("El catering se registro correctamente.");
-						}else{
-							alert("No se pudo registrar el catering.");
 						}
-					});
-
-				}
-				
+					}else{
+						alert("No se pudo registrar el catering.");
+					}
+				});
 			}
 			
 		}

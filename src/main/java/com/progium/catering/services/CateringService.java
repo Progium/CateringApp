@@ -25,4 +25,9 @@ public class CateringService implements CateringServiceInterface{
 		return result;
 		
 	}
+	
+	@Override
+	public Catering getCateringById(Integer idCatering){
+		return cateringRepository.findOne(idCatering);
+	}
 }

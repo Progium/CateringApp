@@ -7,5 +7,7 @@ import com.progium.catering.ejb.Catering;
 public interface CateringServiceInterface {
 
 	Boolean saveCatering(Catering objCatering);
+	//Obtiene un objeto catering
+	Catering getCateringById(Integer idCatering);
 	
 }
