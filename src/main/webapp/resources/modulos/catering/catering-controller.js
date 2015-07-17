@@ -39,29 +39,15 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 	    	$http.get('rest/protected/canton/getAll')
 			.success(function(cantonResponse) {
 				listaCantones = cantonResponse.listaCanton;
-				for (var i = 0; i < listaCantones.length; i++) {
-					if(listaCantones[i].provincia == $scope.objCatering.idProvincia){
-						//Agregar cantones de la provincia seleccionada
-					    var ObjNuevoCanton = listaCantones[i];
-						cantones.push(ObjNuevoCanton);
-					}  
-				};
-				$scope.listaCanton = cantones;
-				$scope.objCatering.idCanton = $scope.listaCanton[0].idCanton;	
+				$scope.listaCanton = _.where(listaCantones, {provincia:$scope.objCatering.idProvincia})
+				$scope.objCatering.idCanton = $scope.listaCanton[0].idCanton;		
 			});
 	    	
 	    	//Obtiene la lista de distritos
 	    	$http.get('rest/protected/distrito/getAll')
 			.success(function(distritoResponse) {
 				listaDistritos = distritoResponse.listaDistrito;
-				for (var i = 0; i < listaDistritos.length; i++) {
-					if(listaDistritos[i].canton == $scope.objCatering.idCanton){
-						//Agregar distritos del canton seleccionado
-					    var ObjNuevoDistrito = listaDistritos[i];
-						distritos.push(ObjNuevoDistrito);
-					}  
-				};
-				$scope.listaDistrito =distritos;
+				$scope.listaDistrito =_.where(listaDistritos, {canton: $scope.objCatering.idCanton});
 				$scope.objCatering.idDistrito = $scope.listaDistrito[0].idDistrito;
 			});
 	    	
@@ -72,21 +58,7 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 		//Trae los cantones de la provincia seleccionada
 	    $scope.llenarCanton = function() {
 	    	$scope.listaCanton.length = 0;
-//	    	//Obtiene la lista de cantones
-//	    	$http.post('rest/protected/canton/getCantonByProvincia', $scope.objCatering.idProvincia)
-//			.success(function(cantonResponse) {
-//				$scope.listaCanton = cantonResponse.listaCanton;
-//				$scope.objCatering.idCanton = $scope.listaCanton[0].idCanton;	
-//			});
-	    	
-	    	for (var i = 0; i < listaCantones.length; i++) {
-				if(listaCantones[i].provincia == $scope.objCatering.idProvincia){
-					//Agregar cantones de la provincia seleccionada
-				    var ObjNuevoCanton = listaCantones[i];
-					cantones.push(ObjNuevoCanton);
-				}  
-			};
-			$scope.listaCanton = cantones;
+			$scope.listaCanton = _.where(listaCantones, {provincia:$scope.objCatering.idProvincia})
 			$scope.objCatering.idCanton = $scope.listaCanton[0].idCanton;	
 			
 			$scope.llenarDistrito();
@@ -95,14 +67,7 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 		//Trae los distritos del canton seleccionado
 	    $scope.llenarDistrito = function() {
 	    	$scope.listaDistrito.length = 0;
-			for (var i = 0; i < listaDistritos.length; i++) {
-				if(listaDistritos[i].canton == $scope.objCatering.idCanton){
-					//Agregar distritos del canton seleccionado
-				    var ObjNuevoDistrito = listaDistritos[i];
-					distritos.push(ObjNuevoDistrito);
-				}  
-			};
-			$scope.listaDistrito =distritos;
+			$scope.listaDistrito =_.where(listaDistritos, {canton: $scope.objCatering.idCanton});
 			$scope.objCatering.idDistrito = $scope.listaDistrito[0].idDistrito;
 	    };
 	    

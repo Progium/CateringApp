@@ -26,6 +26,8 @@
     <script src="resources/first/src/js/jquery.min.js"></script>
     <!--JStorage-->
     <script src="resources/js/lib/jstorage.js"></script>
+    <!--Underscore-->
+    <script src="resources/js/lib/underscore-min.js"></script>
     <!--JSon2-->
     <script src="resources/js/lib/json2.js"></script>
     <!-- Bootstrap -->
