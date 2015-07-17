@@ -95,9 +95,7 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 		//Trae los distritos del canton seleccionado
 	    $scope.llenarDistrito = function() {
 	    	$scope.listaDistrito.length = 0;
-	    	
 			for (var i = 0; i < listaDistritos.length; i++) {
-				console.log(listaDistritos[i].canton);
 				if(listaDistritos[i].canton == $scope.objCatering.idCanton){
 					//Agregar distritos del canton seleccionado
 				    var ObjNuevoDistrito = listaDistritos[i];
@@ -117,7 +115,6 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 			if(this.crearCatering.$valid){
 				var cateringLogo = $scope.files[0];
 				var datosCatering = {};
-				var urlRegistrar = 'rest/protected/catering/registrar';
 				datosCatering = {
 					administradorId: objUsuario.idUsuario,
 					nombre: $scope.objCatering.nombre,
@@ -130,15 +127,11 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 					cantonId: $scope.objCatering.idCanton,
 					distritoId: $scope.objCatering.idDistrito
 				}
-				var req = {
-						 method: 'POST',
-						 url: urlRegistrar,
-						 data: datosCatering
-						}
+				
 				if(cateringLogo){
 					//Guarda la información en variables y se las pasa al controlador de catering de java.
 					$scope.upload = $upload.upload({
-						url : urlRegistrar,
+						url : 'rest/protected/catering/registrar',
 						data : datosCatering,
 						file : cateringLogo
 					}).success(function(contractCateringResponse, status, headers, config) {
@@ -151,15 +144,25 @@ App.controller('CateringRegistrarController', function($scope, $http,$location, 
 						 }
 					});
 				}else{
-					 $http.post(urlRegistrar, datosCatering).success(function(contractCateringResponse, status, headers, config) {
-							//Muestra un mensaje si el usuario es registrado satisfactoriamente en el sistema.
-							if(contractCateringResponse.code == 200){
-								alert("El catering se registro correctamente.");
-								//$location.path('/iniciar-sesion');
-							}else{
-								alert("No se pudo registrar el catering.");
-							 }							
-						});
+//					 $http.post(urlRegistrar, datosCatering).success(function(contractCateringResponse, status, headers, config) {
+//							//Muestra un mensaje si el usuario es registrado satisfactoriamente en el sistema.
+//							if(contractCateringResponse.code == 200){
+//								alert("El catering se registro correctamente.");
+//								//$location.path('/iniciar-sesion');
+//							}else{
+//								alert("No se pudo registrar el catering.");
+//							 }							
+//						});
+
+					$http.post('rest/protected/catering/crear', datosCatering).success(function (contractCateringResponse){
+						if(contractCateringResponse.code == 200){
+	
+							alert("El catering se registro correctamente.");
+						}else{
+							alert("No se pudo registrar el catering.");
+						}
+					});
+
 				}
 				
 			}

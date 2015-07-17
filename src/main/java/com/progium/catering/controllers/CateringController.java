@@ -75,8 +75,8 @@ public class CateringController {
 		//Crea un nuevo usuario response le setea los datos y le pasa el objeto de catering al servicio de usuario
 		CateringResponse cs = new CateringResponse();
 		Usuario objUsuario = generalService.getUsuarioById(administradorId);
-		Provincia objProvincia = generalService.getProvinciaById(provinciaId);
-		Canton objCanton = generalService.getCantonById(cantonId);
+//		Provincia objProvincia = generalService.getProvinciaById(provinciaId);
+//		Canton objCanton = generalService.getCantonById(cantonId);
 		Distrito objDistrito = generalService.getDistritoById(distritoId);
 		String resultFileName = Utils.writeToFile(file, servletContext);
 
@@ -96,6 +96,44 @@ public class CateringController {
 
 		Boolean state = cateringService.saveCatering(objNuevoCatering);
 
+		if (state) {
+			cs.setCode(200);
+			cs.setCodeMessage("catering created succesfully");
+
+		}else{
+			cs.setCode(401);
+			cs.setErrorMessage("Unauthorized User");
+		}
+		return cs;
+	}
+
+	
+	//Obtiene los parametros que le envia el controller por medio del metodo post.
+	@RequestMapping(value = "/crear", method = RequestMethod.POST)
+	@Transactional
+	public CateringResponse crear(@RequestBody CateringRequest cateringRequest)throws NoSuchAlgorithmException {
+		//Crea un nuevo usuario response le setea los datos y le pasa el objeto de catering al servicio de usuario
+		CateringResponse cs = new CateringResponse();
+		Usuario objUsuario = generalService.getUsuarioById(cateringRequest.getAdministradorId());
+		Distrito objDistrito = generalService.getDistritoById(cateringRequest.getDistritoId());
+//		String resultFileName = Utils.writeToFile(cateringRequest.getFile(), servletContext);
+
+		Catering objNuevoCatering = new Catering();
+		objNuevoCatering.setUsuario(objUsuario);
+		objNuevoCatering.setNombre(cateringRequest.getNombre());
+		objNuevoCatering.setCedulaJuridica(cateringRequest.getCedulaJuridica());
+		objNuevoCatering.setDireccion(cateringRequest.getDireccion());
+		objNuevoCatering.setTelefono1(cateringRequest.getTelefono1());
+		objNuevoCatering.setTelefono2(cateringRequest.getTelefono2());
+		objNuevoCatering.setHorario(cateringRequest.getHorario());
+		objNuevoCatering.setProvinciaId(cateringRequest.getProvinciaId());
+		objNuevoCatering.setCantonId(cateringRequest.getCantonId());
+		objNuevoCatering.setDistrito(objDistrito);
+//		objNuevoCatering.setFotografia(resultFileName);
+		objNuevoCatering.setEstado(false);
+
+		Boolean state = cateringService.saveCatering(objNuevoCatering);
+		
 		if (state) {
 			cs.setCode(200);
 			cs.setCodeMessage("catering created succesfully");

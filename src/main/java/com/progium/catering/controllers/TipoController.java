@@ -34,7 +34,7 @@ public class TipoController {
 	GeneralServiceInterface generalService;
 	
 	@RequestMapping(value ="/getTipoEvento", method = RequestMethod.GET)
-	public TipoResponse getAll(){
+	public TipoResponse getTipoEvento(){
 		
 		TipoResponse tipo = new TipoResponse();
 		

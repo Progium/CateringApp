@@ -59,7 +59,7 @@ public class CantonController {
 	}
 
 	@RequestMapping(value ="/getCantonByProvincia", method = RequestMethod.POST)
-	public CantonResponse getByProvincia(@RequestBody CantonRequest cantonRequest) throws NoSuchAlgorithmException{
+	public CantonResponse getCantonByProvincia(@RequestBody CantonRequest cantonRequest) throws NoSuchAlgorithmException{
 		
 		CantonResponse canton = new CantonResponse();
 		
