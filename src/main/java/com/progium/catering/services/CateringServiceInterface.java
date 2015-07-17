@@ -1,17 +1,17 @@
 package com.progium.catering.services;
 
 import java.util.List;
+import org.springframework.data.domain.Page;
+import com.progium.catering.contracts.UsuarioRequest;
 
 import com.progium.catering.ejb.Catering;
-import com.progium.catering.ejb.Producto;
 
 public interface CateringServiceInterface {
 
 	Boolean saveCatering(Catering objCatering);
 	
-	List<Catering> getNoUserCateringList(List<Integer> cateringids);
+	List<Catering> getCateringList(int idUsuario);
 
-	Catering getCatering (int idCatering);
 	List<Catering> getAll();
 
 }

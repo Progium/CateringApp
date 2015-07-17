@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.progium.catering.contracts.IniciarSesionRequest;
 import com.progium.catering.contracts.ProductoResponse;
 import com.progium.catering.contracts.TipoResponse;
 import com.progium.catering.contracts.CateringResponse;
@@ -119,47 +120,27 @@ public class CateringController {
 	}
 
 	
-	@RequestMapping(value ="/getAll", method = RequestMethod.GET)
-	@Transactional
-	public CateringResponse getAll(){
+	@RequestMapping(value ="/getCaterigLista", method = RequestMethod.POST)
+	public CateringResponse getCaterigLista(@RequestBody CateringRequest cateringRequest) throws NoSuchAlgorithmException{
 		
-		CateringResponse cr = new CateringResponse();
+		CateringResponse catering = new CateringResponse();
 		
-		HttpSession currentSession = request.getSession();
-		int idUsuario = (int) currentSession.getAttribute("idUsuario");
-		Usuario usuarios = usuarioService.getSessionUsuario(idUsuario);
 		
-		List<Catering> list = usuarios.getCaterings();
-		List<Integer> cateringIds = new ArrayList<Integer>();
+		List<Catering> listaCatering = cateringService.getCateringList(cateringRequest.getAdministradorId());
+		List<CateringPOJO> listaCateringPojo = new ArrayList<CateringPOJO>();
 		
-		for (Catering cat : list){
-			cateringIds.add(cat.getIdCatering());
+		for (Catering cat : listaCatering){
+			CateringPOJO nCatering = new CateringPOJO();
+			PojoUtils.pojoMappingUtility(nCatering,cat);
+			listaCateringPojo.add(nCatering);
 		}
 		
-		List<Catering> noCateringList = new ArrayList<Catering>();
-		if(cateringIds.size() ==  0){
-			noCateringList = cateringService.getAll();
-		}else{
-			noCateringList = cateringService.getNoUserCateringList(cateringIds);
-		}
+		catering.setCateringLista(listaCateringPojo);
 		
+		return catering;	
 		
-		System.out.println(list.size());
-		System.out.println(noCateringList.size());
-		
-		List<CateringPOJO> viewList = new ArrayList<CateringPOJO>();
-		for (Catering origin : noCateringList){
-			CateringPOJO target = new CateringPOJO();
-			PojoUtils.pojoMappingUtility(target,origin);
-			viewList.add(target);
-		}
-		
-		/*cr.setCatering(viewList);*/
-		cr.setCatering(viewList);
-		cr.setCode(200);
-		
-		return cr;
-			
 	}
 	
 }
+
+	

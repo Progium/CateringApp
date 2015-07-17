@@ -14,7 +14,7 @@
                                 <th width="70"></th>
                             </tr>
                         </thead>
-                        <tbody ng-repeat="catering in listaCatering">
+                        <tbody ng-repeat="catering in CateringLista">
                             <tr>
                                 <td>
                                     {{catering.nombre}}

@@ -7,29 +7,21 @@ import com.progium.catering.pojo.CateringPOJO;
 
 public class CateringResponse extends BaseResponse {
 
-	private List<Catering> caterings;
+	private List<CateringPOJO> cateringLista;
 
 	public CateringResponse() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public List<Catering> getCaterings() {
-		return caterings;
+	public List<CateringPOJO> getCaterings() {
+		return cateringLista;
 	}
 
-//	public void setCatering(List<Catering> caterings) {
-//		this.caterings = caterings;
-//	}
-
-	public void setCatering(List<CateringPOJO> viewList) {
-		// TODO Auto-generated method stub
+	public void setCateringLista(List<CateringPOJO> cateringLista) {
+		this.cateringLista = cateringLista;
 		
 	}
 		
-//	public void setCatering(List<CateringPOJO> viewList) {
-//		this.caterings = viewList;
-//	}
-//	
 	
 }
