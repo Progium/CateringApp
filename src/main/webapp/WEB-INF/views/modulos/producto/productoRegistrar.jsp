@@ -18,13 +18,15 @@
 						<table class="table-bordered table">
 							<th>
 							<th>Nombre</th>
-							<tr ng-repeat="productoSelec in productosSelecc | filter:a as results" ng-click="removido(productoSelec, 'removido')">
+							<th>Añadir a catálogo</th>
+							<tr ng-repeat="productoSelec in productosSelecc | filter:a as results">
 								<td>
-									<input type="checkbox" ng-model="producto.done">
+									<button type="button"  class="fa fa-arrow-right" title="Remover" ng-click="removido(productoSelec, 'removido')"></button>
 								</td>
 								<td>
 									<span>{{productoSelec.nombre}}</span>
 								</td>
+								<td><button type="button" class="fa fa-cutlery" title="Añadir" ng-click="openModal(productoSelec)"></button></td>
 							</tr>
 						</table>
 						</div>
@@ -42,9 +44,9 @@
 						<table class="table-bordered table">
 							<th>
 							<th>Nombre</th>
-							<tr ng-repeat="producto in productos | filter:q as results"  ng-click="seleccionado(producto, 'agregar')">
+							<tr ng-repeat="producto in productos | filter:q as results" >
 								<td>
-									<input type="checkbox" ng-model="producto.done">
+									<button type="button" class="fa fa-arrow-left" title="Agregar" ng-click="seleccionado(producto, 'agregar')"></button>
 								</td>
 								<td>
 									<span>{{producto.nombre}}</span>

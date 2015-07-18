@@ -14,7 +14,6 @@
 						<div class="form-group">
 							<h4 class="posicion">Datos Personales</h4>
 						</div>
-
 						<!-- Foto -->
 						<div class="form-group">
 							<label class="col-lg-3 control-label">Foto</label>

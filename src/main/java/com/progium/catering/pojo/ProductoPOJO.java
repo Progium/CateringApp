@@ -4,7 +4,7 @@ public class ProductoPOJO {
 	
 	private int idProducto;
 	private String nombre;
-	private Integer  categoriaId;
+	private int  categoriaId;
 	
 	public ProductoPOJO() {
 		super();
@@ -27,11 +27,11 @@ public class ProductoPOJO {
 		this.nombre = nombre;
 	}
 	
-	public Integer getCategoriaId() {
+	public int getCategoriaId() {
 		return categoriaId;
 	}
 	
-	public void setCategoriaId(Integer categoriaId) {
+	public void setCategoriaId(int categoriaId) {
 		this.categoriaId = categoriaId;
 	}
 	

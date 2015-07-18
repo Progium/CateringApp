@@ -2,7 +2,7 @@
 
 var PrototipoProgium = {};
 var _ScopeContainer = {};
-var App = angular.module('PrototipoProgium', ['PrototipoProgium.services', 'ngRoute', 'angularFileUpload']);
+var App = angular.module('PrototipoProgium', ['PrototipoProgium.services', 'ui.bootstrap', 'ngRoute', 'angularFileUpload']);
 
 App.controller('MainController', function($scope, $http, $route, $routeParams, $location) {
      $scope.esAdministrador = true;
@@ -51,6 +51,10 @@ App.config(function($routeProvider, $locationProvider) {
 		.when('/producto-registrar', {
 			templateUrl: 'modulos/producto-registrar',
 			controller: 'ProductoRegistrarController'
+		})
+		.when('/producto-agregar', {
+			templateUrl: 'modulos/producto-agregar',
+			controller: 'ModalInstanceModifyCtrl'
 		})
 		.when('/cotizacion-registrar', {
 			templateUrl: 'modulos/cotizacion-registrar',

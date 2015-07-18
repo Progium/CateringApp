@@ -7,4 +7,6 @@ public interface ProductoServiceInterface {
 
 	List<Producto> findAll();
 	
+	Producto getProductoById(int idProducto);
+	
 }
