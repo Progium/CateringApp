@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+
+
 import com.progium.catering.contracts.TipoResponse;
 import com.progium.catering.contracts.UsuarioResponse;
 import com.progium.catering.contracts.UsuarioRequest;
@@ -49,55 +51,71 @@ public class UsuarioController {
 		// TODO Auto-generated constructor stub
 	}
 	//Obtiene los parametros que le envia el controller por medio del metodo post.
-	@RequestMapping(value = "/registrar", method = RequestMethod.POST)
+	@RequestMapping(value = "/registrarFoto", method = RequestMethod.POST)
 	@Transactional
-	public UsuarioResponse registrar(@RequestParam("file") MultipartFile file,
-			@RequestParam("nombre") String nombre,
-			@RequestParam("apellido1") String apellido1,
-			@RequestParam("apellido2") String apellido2,
-			@RequestParam("correo") String correo,
-			@RequestParam("telefono1") String telefono1,
-			@RequestParam("telefono2") String telefono2,
-			@RequestParam("tipoUsuarioId") int tipoUsuarioId,
-			@RequestParam("contrasenna") String contrasenna)
+	public UsuarioResponse registrarFoto(@RequestParam("file") MultipartFile file,
+			@RequestParam("idUsuario") int idUsuario)
 			throws NoSuchAlgorithmException {
-		//Crea un nuevo usuario response le setea los datos y le pasa el objeto de usuario al servicio de usuario
+		//Busca al catering que se acaba de crear y le agrega la foto.
 		UsuarioResponse us = new UsuarioResponse();
-		Tipo objTipo = generalService.getTipoById(tipoUsuarioId);
-		String resultFileName = Utils.writeToFile(file, servletContext);
-
-		Usuario objNuevoUsuario = new Usuario();
-		objNuevoUsuario.setNombre(nombre);
-		objNuevoUsuario.setApellido1(apellido1);
-		objNuevoUsuario.setApellido2(apellido2);
-		objNuevoUsuario.setCorreo(correo);
-		objNuevoUsuario.setTelefono1(telefono1);
-		objNuevoUsuario.setTelefono2(telefono2);
-		objNuevoUsuario.setTipo(objTipo);
-		objNuevoUsuario.setFotografia(resultFileName);
-		objNuevoUsuario.setContrasenna(GeneradorContrasennaUtil
-				.encriptarContrasenna(contrasenna));
-
-		Boolean state = usuarioService.saveUsuario(objNuevoUsuario);
+	
+		Usuario objUsuario = usuarioService.getUsuarioById(idUsuario);
 		
+		String resultFileName = Utils.writeToFile(file, servletContext);
+		
+		objUsuario.setFotografia(resultFileName);
+		
+		Boolean state = usuarioService.saveUsuario(objUsuario);
 		
 		if (state) {
 			us.setCode(200);
 			us.setCodeMessage("user created succesfully");
-
-			String mensaje = "Para ingresar al sistema debe utilizar las siguientes credenciales: "
-					+ "Correo: "
-					+ objNuevoUsuario.getCorreo()
-					+ "</br>"
-					+ " Contraseña: " + contrasenna.toString();
-			SendEmail.sendEmail("Bienvenido a Catering App!",
-					objNuevoUsuario.getCorreo(), "Nuevo Usuario",
-					"Bienvenido a Catering App", mensaje);
-
 		}else{
 			us.setCode(401);
 			us.setErrorMessage("Unauthorized User");
 		}
 		return us;
 	}
+	
+	//Obtiene los parametros que le envia el controller por medio del metodo post.
+		@RequestMapping(value = "/registrar", method = RequestMethod.POST)
+		@Transactional
+		public UsuarioResponse registrar(@RequestBody UsuarioRequest usuarioRequest)throws NoSuchAlgorithmException {
+			//Crea un nuevo usuario response le setea los datos y le pasa el objeto de usuario al servicio de usuario
+			UsuarioResponse us = new UsuarioResponse();
+			Tipo objTipo = generalService.getTipoById(usuarioRequest.getTipoUsuarioId());
+
+			Usuario objNuevoUsuario = new Usuario();
+			objNuevoUsuario.setNombre(usuarioRequest.getNombre());
+			objNuevoUsuario.setApellido1(usuarioRequest.getApellido1());
+			objNuevoUsuario.setApellido2(usuarioRequest.getApellido2());
+			objNuevoUsuario.setCorreo(usuarioRequest.getCorreo());
+			objNuevoUsuario.setTelefono1(usuarioRequest.getTelefono1());
+			objNuevoUsuario.setTelefono2(usuarioRequest.getTelefono2());
+			objNuevoUsuario.setTipo(objTipo);
+			objNuevoUsuario.setContrasenna(GeneradorContrasennaUtil
+					.encriptarContrasenna(usuarioRequest.getContrasenna()));
+
+			Boolean state = usuarioService.saveUsuario(objNuevoUsuario);
+		
+			if (state) {
+				us.setCode(200);
+				us.setCodeMessage("user created succesfully");
+				us.setIdUsuario(objNuevoUsuario.getIdUsuario());
+
+				String mensaje = "Para ingresar al sistema debe utilizar las siguientes credenciales: "
+						+ "Correo: "
+						+ objNuevoUsuario.getCorreo()
+						+ "</br>"
+						+ " Contraseña: " + usuarioRequest.getContrasenna().toString();
+				SendEmail.sendEmail("Bienvenido a Catering App!",
+						objNuevoUsuario.getCorreo(), "Nuevo Usuario",
+						"Bienvenido a Catering App", mensaje);
+
+			}else{
+				us.setCode(401);
+				us.setErrorMessage("Unauthorized User");
+			}
+			return us;
+		}
 }
