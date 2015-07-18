@@ -21,5 +21,10 @@ public class ProductoService implements ProductoServiceInterface{
 	public List<Producto> findAll() {
 		return productoRepository.findAll(); 
 	}
-
+	
+	@Override
+	@Transactional
+	public Producto getProductoById(int idProducto) {
+		return productoRepository.findOne(idProducto);
+	}
 }

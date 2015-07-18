@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.progium.catering.ejb.Producto;
 import com.progium.catering.contracts.BaseResponse;
 import com.progium.catering.contracts.ProductoResponse;
+import com.progium.catering.contracts.ProductoRequest;
 import com.progium.catering.services.ProductoServiceInterface;
 import com.progium.catering.pojo.ProductoPOJO;
 import com.progium.catering.utils.PojoUtils;
@@ -59,5 +60,37 @@ public class ProductoController {
 		}
 		return entityResponse;
 	}	
+	
+	
+	@RequestMapping(value = "/findOne", method = RequestMethod.POST)
+	@Transactional
+	public ProductoResponse findOne(@RequestBody ProductoRequest entityRequest){	
+		
+		ProductoResponse entityResponse = new ProductoResponse();
+		
+		ProductoPOJO productoPojo = entityRequest.getProducto();
+		
+		List<ProductoPOJO> productosPojo = new ArrayList<ProductoPOJO>();
+		
+		Producto producto = productoService.getProductoById(productoPojo.getIdProducto());
+		if(producto != null){
+			producto.setNombre(producto.getNombre());
+			productoPojo = new ProductoPOJO();
+			PojoUtils.pojoMappingUtility(productoPojo, producto);
+			productosPojo.add(productoPojo);
+			entityResponse.setProductos(productosPojo);
+			
+			entityResponse.setCode(200);
+			entityResponse.setCodeMessage("Productos fetch succcesss");
+		}else{
+			entityResponse.setCode(400);
+			entityResponse.setCodeMessage("Productos pojo not found");
+		}
+		return entityResponse;
+		
+	}	
+	
+	
+	
 	
 }

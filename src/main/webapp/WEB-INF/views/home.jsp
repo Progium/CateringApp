@@ -54,6 +54,9 @@
     <script src="resources/js/lib/angular/1.3.9/angular.js"></script>
     <script src="resources/js/lib/angular/1.3.9/angular-route.js"></script>
 	<script src="resources/js/lib/uploadfile/angular-file-upload.min.js"></script>
+	
+	<!-- ui-bootstrap -->
+	<script src="resources/js/lib/ui-bootstrap-tpls-0.9.0.min.js"></script>
 
     <!--Aplicacion-->
     <script src="resources/js/app.js"></script>
@@ -66,6 +69,7 @@
     <script src="resources/modulos/catering/catering-buscar-controller.js"></script>
     <script src="resources/modulos/cotizacion/cotizacion-registrar-controller.js"></script>
     <script src="resources/modulos/producto/producto-registrar-controller.js"></script>
+    <script src="resources/modulos/producto/producto-agregar-controller.js"></script>
     <script src="resources/modulos/subasta/subasta-registrar-controller.js"></script>
     <script src="resources/modulos/subasta/subasta-listar-controller.js"></script>
     <script src="resources/modulos/compartido/compartido-controller.js"></script>

@@ -60,6 +60,11 @@ public class LayoutController {
 		return "modulos/producto/productoRegistrar";
 	}
 	
+	@RequestMapping(value = "/producto-agregar")
+	public String getProductoAgregar()
+	{
+		return "modulos/producto/productoAgregar";
+	}
 	//-------------------------------------------------------
 	// Paquete
 	// -------------------------------------------------------
