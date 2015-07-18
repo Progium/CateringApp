@@ -1,5 +1,6 @@
 package com.progium.catering.repositories;
 
+import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
@@ -12,4 +13,5 @@ public interface CateringRepository extends CrudRepository<Catering,Integer> {
 	
 	Page<Catering> findAll(Pageable pageable);
 	
+	List<Catering> findCateringByUsuario (Integer idAdministrador);
 }

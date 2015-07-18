@@ -22,6 +22,11 @@ public class LayoutController {
 		return "modulos/catering/cateringBuscar";
 	}
 	
+	@RequestMapping(value = "/catering-listar")
+	public String getCateringListar()
+	{
+		return "modulos/catering/cateringListar";
+	}
 	//-------------------------------------------------------
 	//Compartido
 	//-------------------------------------------------------

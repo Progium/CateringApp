@@ -4,11 +4,12 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.progium.catering.ejb.Catering;
+//import com.progium.catering.ejb.Catering;
+import com.progium.catering.pojo.CateringPOJO;
 
 public class CateringResponse extends BaseResponse {
 
-	private List<Catering> caterings;
+	private List<CateringPOJO> caterings;
 	private int idCatering;
 //	private int administradorId;
 //	private String nombre;
@@ -29,11 +30,11 @@ public class CateringResponse extends BaseResponse {
 		// TODO Auto-generated constructor stub
 	}
 
-	public List<Catering> getCaterings() {
+	public List<CateringPOJO> getCaterings() {
 		return caterings;
 	}
 
-	public void setCatering(List<Catering> caterings) {
+	public void setCaterings(List<CateringPOJO> caterings) {
 		this.caterings = caterings;
 	}
 

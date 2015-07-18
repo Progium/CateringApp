@@ -32,10 +32,12 @@ import com.progium.catering.ejb.Tipo;
 import com.progium.catering.ejb.Usuario;
 import com.progium.catering.pojo.CateringPOJO;
 import com.progium.catering.services.GeneralServiceInterface;
+import com.progium.catering.services.UsuarioServiceInterface;
 import com.progium.catering.services.CateringServiceInterface;
 import com.progium.catering.utils.GeneradorContrasennaUtil;
 import com.progium.catering.utils.SendEmail;
 import com.progium.catering.utils.Utils;
+import com.progium.catering.utils.PojoUtils;
 
 /**
  * Handles requests for the application home page.
@@ -49,9 +51,15 @@ public class CateringController {
 
 	@Autowired
 	GeneralServiceInterface generalService;
+	
+	@Autowired
+	UsuarioServiceInterface usuarioService;
 
 	@Autowired
 	ServletContext servletContext;
+	
+	@Autowired
+	HttpServletRequest request;	
 
 	public CateringController() {
 		// TODO Auto-generated constructor stub
@@ -117,5 +125,49 @@ public class CateringController {
 		}
 		return cs;
 	}
+	
+	
+	@RequestMapping(value ="/getCaterigLista", method = RequestMethod.POST)
+	public CateringResponse getCaterigLista(@RequestBody CateringRequest cateringRequest) throws NoSuchAlgorithmException{
+		
+		CateringResponse catering = new CateringResponse();
+		
+		
+		List<Catering> listaCatering = cateringService.getCaterinByIdAdministrador(cateringRequest.getAdministradorId());
+		List<CateringPOJO> listaCateringPojo = new ArrayList<CateringPOJO>();
+		
+		for (Catering cat : listaCatering){
+			CateringPOJO nCatering = new CateringPOJO();
+			PojoUtils.pojoMappingUtility(nCatering,cat);
+			listaCateringPojo.add(nCatering);
+		}
+		
+		catering.setCaterings(listaCateringPojo);
+		
+		return catering;	
+		
+	}
 
+	
+	@RequestMapping(value ="/getAll", method = RequestMethod.GET)
+	public CateringResponse getCaterigLista(){
+		
+		CateringResponse catering = new CateringResponse();
+		
+		HttpSession currentSession = request.getSession();
+		int idUsuario = (int) currentSession.getAttribute("idUsuario");	
+		List<Catering> listaCatering = cateringService.getCaterinByIdAdministrador(1);
+		List<CateringPOJO> listaCateringPojo = new ArrayList<CateringPOJO>();
+		
+		for (Catering cat : listaCatering){
+			CateringPOJO nCatering = new CateringPOJO();
+			PojoUtils.pojoMappingUtility(nCatering,cat);
+			listaCateringPojo.add(nCatering);
+		}
+		
+		catering.setCaterings(listaCateringPojo);
+		
+		return catering;	
+		
+	}
 }

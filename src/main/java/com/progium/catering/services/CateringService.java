@@ -30,4 +30,14 @@ public class CateringService implements CateringServiceInterface{
 	public Catering getCateringById(Integer idCatering){
 		return cateringRepository.findOne(idCatering);
 	}
+	
+	@Override
+	public List<Catering> getCaterinByIdAdministrador(Integer idAdministrador) {
+		return cateringRepository.findCateringByUsuario(idAdministrador);
+	}
+	
+	@Override
+	public List<Catering> getAll() {
+		return (List<Catering>) cateringRepository.findAll(); 
+	}
 }
