@@ -7,6 +7,7 @@ import com.progium.catering.ejb.Usuario;
 public class UsuarioResponse extends BaseResponse {
 
 	private List<Usuario> usuarios;
+	private int idUsuario;
 	
 	public UsuarioResponse() {
 		super();
@@ -19,6 +20,14 @@ public class UsuarioResponse extends BaseResponse {
 
 	public void setUsuarios(List<Usuario> usuarios) {
 		this.usuarios = usuarios;
+	}
+
+	public int getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	

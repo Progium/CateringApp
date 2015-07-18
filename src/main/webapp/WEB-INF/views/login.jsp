@@ -23,6 +23,8 @@
     <script src="resources/first/src/js/jquery.min.js"></script>
     <!--JStorage-->
     <script src="resources/js/lib/jstorage.js"></script>
+    <!--Underscore-->
+    <script src="resources/js/lib/underscore-min.js"></script>
     <!--JSon2-->
     <script src="resources/js/lib/json2.js"></script>
     <!-- Bootstrap -->
@@ -60,8 +62,9 @@
     <!--Controladores-->
     <script src="resources/modulos/seguridad/iniciar-sesion-controller.js"></script>
     <script src="resources/modulos/seguridad/usuario-controller.js"></script>
-    <script src="resources/modulos/catering/catering-registrar-controller.js"></script>
+    <script src="resources/modulos/catering/catering-controller.js"></script>
     <script src="resources/modulos/catering/catering-buscar-controller.js"></script>
+    <script src="resources/modulos/catering/catering-listar-controller.js"></script>
     <script src="resources/modulos/cotizacion/cotizacion-registrar-controller.js"></script>
     <script src="resources/modulos/producto/producto-registrar-controller.js"></script>
 </head>

@@ -8,5 +8,5 @@ import com.progium.catering.ejb.Usuario;
 public interface UsuarioServiceInterface {
 
 	Boolean saveUsuario(Usuario objUsuario);
-
+	Usuario getUsuarioById(Integer idUsuario);
 }

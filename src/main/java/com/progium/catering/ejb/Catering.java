@@ -24,7 +24,7 @@ public class Catering implements Serializable {
 
 	private String direccion;
 
-	private byte estado;
+	private boolean estado;
 
 	private String fotografia;
 
@@ -99,11 +99,11 @@ public class Catering implements Serializable {
 		this.direccion = direccion;
 	}
 
-	public byte getEstado() {
+	public boolean getEstado() {
 		return this.estado;
 	}
 
-	public void setEstado(byte estado) {
+	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
 
