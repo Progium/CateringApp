@@ -27,7 +27,7 @@
 								<div class="media-body">
 									<input ng-file-select="onFileSelect($files)" type="file"
 										name="file" title="Examinar"
-										class="btn btn-sm btn-info m-b-small" required />
+										class="btn btn-sm btn-info m-b-small"/>
 								</div>
 							</div>
 						</div>
