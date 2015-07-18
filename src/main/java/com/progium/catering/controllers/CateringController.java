@@ -156,7 +156,7 @@ public class CateringController {
 		
 		HttpSession currentSession = request.getSession();
 		int idUsuario = (int) currentSession.getAttribute("idUsuario");	
-		List<Catering> listaCatering = cateringService.getCaterinByIdAdministrador(1);
+		List<Catering> listaCatering = cateringService.getAll();
 		List<CateringPOJO> listaCateringPojo = new ArrayList<CateringPOJO>();
 		
 		for (Catering cat : listaCatering){

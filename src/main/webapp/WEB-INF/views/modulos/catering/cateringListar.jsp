@@ -1,4 +1,4 @@
-<section class="main padder" ng-controller="CateringListarController">
+<section class="main padder">
     <div class="clearfix">
         <h4><i class="fa fa-table"></i>Mis Catering</h4>
     </div>
@@ -14,13 +14,13 @@
                                 <th width="70"></th>
                             </tr>
                         </thead>
-                        <tbody ng-repeat="catering in CateringLista">
+                        <tbody ng-repeat="catering in cateringLista">
                             <tr>
                                 <td>
                                     {{catering.nombre}}
                                 </td>
                                 <td>
-                                    {{catering.ubicacion}}
+                                    {{catering.direccion}}
                                 </td>
                                 <td class="text-right">
                                     <div class="btn-group">
