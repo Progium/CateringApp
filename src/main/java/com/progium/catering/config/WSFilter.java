@@ -39,7 +39,7 @@ public class WSFilter implements Filter {
 	    
 	    System.out.println("Session Object ------> " + currentSession.getAttribute("idUsuario"));
 	    
-		if (currentSession.getAttribute("idUsuario") != null || needAccess.equals("false")) {
+		if (currentSession.getAttribute("idUsuario") != null || needAccess==null || needAccess.equals("false")) {
 			chain.doFilter(servletRequest, servletResponse);
 		} else {
 			logger.debug("Rejected: " + servletRequest.toString());

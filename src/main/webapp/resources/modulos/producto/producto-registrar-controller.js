@@ -66,10 +66,10 @@ App.controller('ProductoRegistrarController', function($scope,$http, $modal) {
 			
 //			var requestProducto = {};
 //			
-//			requestProducto.productoSelec = {};
-//			requestProducto.productoSelec.id = param.idProducto;
+//			requestProducto.producto = {};
+//			requestProducto.producto.id = param.idProducto;
 			
-			$scope.productoSelec.id = param.idProducto;
+			$scope.productoSelec.idProducto = param.idProducto;
 			$scope.productoSelec.nombre = param.nombre;
 			/*$http.post('rest/protected/producto/findOne', requestProducto)
 			.success(function (response) {

@@ -13,5 +13,6 @@ public interface CateringRepository extends CrudRepository<Catering,Integer> {
 	
 	Page<Catering> findAll(Pageable pageable);
 	
-	List<Catering> findCateringByUsuario (Integer idAdministrador);
+	List<Catering> findCateringByUsuario_idUsuario
+	(Integer idAdministrador);
 }
